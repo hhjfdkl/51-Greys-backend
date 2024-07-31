@@ -70,7 +70,7 @@ public class EmployeeController {
 	
 	//DELETE
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Employee> deleteDepartment(@PathVariable int id)
+	public ResponseEntity<Employee> deleteEmployee(@PathVariable int id)
 	{
 		return service.deleteEmployeeById(id);
 	}
