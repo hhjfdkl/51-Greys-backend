@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.models.Project;
@@ -37,6 +38,12 @@ public class ProjectController {
 	public ResponseEntity<Iterable<Project>> getAllProjects()
 	{
 		return service.getAllProjects();
+	}
+	
+	@GetMapping("/search")
+	public ResponseEntity<Iterable<Project>> getProjectsByName(@RequestParam("name") String name)
+	{
+		return service.getProjectsByName(name);
 	}
 	
 	@GetMapping("/{id}")

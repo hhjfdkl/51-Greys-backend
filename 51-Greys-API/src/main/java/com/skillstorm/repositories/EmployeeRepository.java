@@ -17,8 +17,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 			value =
 			  "SELECT employee_id, first_name, last_name, email, phone_number, occupation, clearance, img "
 			+ "FROM employee "
-			+ "WHERE first_name LIKE ?1 "
-			+ "OR last_name LIKE ?1 "
+			+ "WHERE first_name LIKE %?1% "
+			+ "OR last_name LIKE %?1% "
 			+ "ORDER BY last_name"
 	)
 	public Iterable<Employee> findEmployeesByName(String name);

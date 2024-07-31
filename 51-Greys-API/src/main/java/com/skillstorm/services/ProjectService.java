@@ -16,7 +16,14 @@ public class ProjectService {
 	//CREATE
 	public ResponseEntity<Project> createProject(Project project)
 	{
-		//TODO:Add a check here for codename - we shouldn't have two projects with same name
+		
+		if(project.getCodename().equals(repo.getProjectName(project.getCodename())))
+		{
+			return ResponseEntity
+					.status(400)
+					.header("Error", "A project with that name already exists.")
+					.body(null);
+		}
 		
 		return ResponseEntity
 				.status(200)
@@ -35,6 +42,14 @@ public class ProjectService {
 	}
 	
 	//should we add getAllByString?? Depends on front end functionality
+	public ResponseEntity<Iterable<Project>> getProjectsByName(String name)
+	{
+		return ResponseEntity
+				.status(200)
+				.header("Message", "Pulled projects by name provided.")
+				.body(repo.findProjectsByName(name));
+	}
+	
 	
 	public ResponseEntity<Project> getProjectById(int id)
 	{
