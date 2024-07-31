@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: 51-Greys-API
+    
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/51_greys_employee_management_database
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  security:
+    user:
+      name: itsme
+      password: password  
+  
+server:
+  port: 8080
