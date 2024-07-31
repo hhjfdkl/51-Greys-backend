@@ -1,5 +1,8 @@
 package com.skillstorm.repositories;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +11,16 @@ import com.skillstorm.models.Employee;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
-	//We'll make these later if we find we need custom queries
+	//Returns a list of employees with the name queried (first or last)
+	@Query(
+			nativeQuery = true,
+			value =
+			  "SELECT employee_id, first_name, last_name, email, phone_number, occupation, clearance, img "
+			+ "FROM employee "
+			+ "WHERE first_name LIKE ?1 "
+			+ "OR last_name LIKE ?1 "
+			+ "ORDER BY last_name"
+	)
+	public Iterable<Employee> findEmployeesByName(String name);
+	
 }

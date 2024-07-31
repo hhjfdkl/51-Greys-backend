@@ -36,8 +36,14 @@ public class EmployeeService
 				.body(repo.findAll());
 	}
 	
-	//TODO: get list of employees by name? (make in EmployeeRepository)
 	
+	public ResponseEntity<Iterable<Employee>> getEmployeesByName(String name)
+	{
+		return ResponseEntity
+				.status(200)
+				.header("Message", "Pulled employees by name provided")
+				.body(repo.findEmployeesByName(name));
+	}
 	
 	public ResponseEntity<Employee> getEmployeeById(int id)
 	{

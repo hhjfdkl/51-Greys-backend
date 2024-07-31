@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.models.Employee;
@@ -38,9 +39,11 @@ public class EmployeeController {
 		return service.getAllEmployees();
 	}
 	
-		//TODO: make method that grabs employee iterable by string
-		//Query from the API will grab it, not an endpoint
-	
+	@GetMapping("/search")
+	public ResponseEntity<Iterable<Employee>> getAllEmployeesByName(@RequestParam("name") String name)
+	{
+		return service.getEmployeesByName(name);
+	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id)
