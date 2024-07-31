@@ -1,5 +1,12 @@
 package com.skillstorm.repositories;
 
-public class EmployeeRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import com.skillstorm.models.Employee;
+
+@Repository
+public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
+
+	//We'll make these later if we find we need custom queries
 }
