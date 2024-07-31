@@ -12,6 +12,7 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     
+# Will be used once we implement security features
   security:
     user:
       name: itsme
