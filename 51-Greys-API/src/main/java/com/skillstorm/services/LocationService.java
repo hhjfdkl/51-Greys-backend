@@ -18,7 +18,7 @@ public class LocationService {
 	private LocationRepository repo;
 	
 	//CREATE
-	public ResponseEntity<Location> createProject(Location location)
+	public ResponseEntity<Location> createLocation(Location location)
 	{
 		
 		if(location.getLocationName().equals(repo.getLocationName(location.getLocationName())))
