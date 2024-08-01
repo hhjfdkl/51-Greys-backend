@@ -26,7 +26,9 @@ VALUES
 
 INSERT INTO employee (first_name, last_name, email, phone_number, occupation, clearance_level, location_id, img)
 VALUES 
-  ('Nate','Koroman','nk@fedmail.net','111-111-1111','Fry Cook',5, 1,null)
+  ('Nate','Koroman','nk@fedmail.net','111-111-1111', 'Fry Cook' , 5, 1, null)
+, ('Noah', 'Chun', 'nc@fedmail.net', '111-111-1111', 'Cashier' , 5, 1, null)
+, ('Yuri', 'Beneche', 'yb@fedmail.net', '111-111-1111', 'Dish Washer & Busser', 5, 1, null)
 , ('Bob','Dole','bdole@51test.gov','735-894-4900','Administration and Management', 1, 2,'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ks_1996_dole.jpg/480px-Ks_1996_dole.jpg')
 , ('Jim','Smith','jsmith@gmail.org','222-222-2222','Security Guard', 4, 1,null)
 , ('Serena','Williams','serwil@earthlink.gov','833-671-1781','Science and Research', 1, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFfjb2I0jARffSB43NMK7HC4IqVwCGC7e-fw&s')
@@ -45,6 +47,12 @@ VALUES
 , ('FRPc -- Containment III','', 4,'Very High',null)
 , ('FRPr -- Containment I','', 4,'Low',null)
 , ('ACFw -- Research','', 2,'High',null)
-, ('Prepare Food','Cook the burgers', 5,'Low','https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg')
+, ('Prepare Food','Cook the burgers and serve the drinks', 5,'Low','https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg')
 ;
 
+INSERT INTO employee_project(employee_id, project_id)
+VALUES
+  (1, 5)
+, (2, 5)
+, (3, 5)
+;
