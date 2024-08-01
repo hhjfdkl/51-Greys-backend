@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Employee;
+import com.skillstorm.models.Location;
 import com.skillstorm.repositories.EmployeeRepository;
 
 @Service
@@ -71,6 +72,7 @@ public class EmployeeService
 			, String phoneNumber
 			, String occupation
 			, Clearance clearance
+			, Location location
 			, String img
 	//		, Project[] projects
 			)
@@ -93,6 +95,7 @@ public class EmployeeService
 						, phoneNumber
 						, occupation
 						, clearance
+						, location
 						, img
 					//	, projects
 						)

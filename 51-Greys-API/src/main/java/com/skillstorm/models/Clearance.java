@@ -3,6 +3,8 @@ package com.skillstorm.models;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,9 +23,9 @@ public class Clearance {
 	@Column(name = "clearance_type")
 	private String clearanceType;
 	
-	//using fetch type lazy to try it. Makes an error with JsonIgnoreProperties so I commented it out
+	
 	@OneToMany(mappedBy = "clearance", fetch = FetchType.LAZY)
-//	@JsonIgnoreProperties("clearance") 
+	@JsonIgnoreProperties("clearance") 
 	private List<Employee> employees;
 	
 	public Clearance()

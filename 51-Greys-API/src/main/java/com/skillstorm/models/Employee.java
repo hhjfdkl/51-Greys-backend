@@ -43,6 +43,11 @@ public class Employee
 	@JsonIgnoreProperties("employees")
 	private Clearance clearance;
 	
+	@ManyToOne
+	@JoinColumn(name = "location_id", referencedColumnName = "location_id")
+	@JsonIgnoreProperties("employees")
+	private Location location;
+	
 	@Column(name = "img")
 	private String img;
 	
@@ -63,6 +68,7 @@ public class Employee
 			, String phoneNumber
 			, String occupation
 			, Clearance clearance
+			, Location location
 			, String img
 		//	, Project[] projects 
 			)
@@ -75,6 +81,7 @@ public class Employee
 		this.phoneNumber = phoneNumber;
 		this.occupation = occupation;
 		this.clearance = clearance;
+		this.location = location;
 		this.img = img;
 		//this.projects = projects;
 	}
@@ -147,6 +154,16 @@ public class Employee
 
 	public void setClearance(Clearance clearance) {
 		this.clearance = clearance;
+	}
+
+
+	public Location getLocation() {
+		return location;
+	}
+
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 

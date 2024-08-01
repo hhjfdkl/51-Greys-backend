@@ -66,6 +66,7 @@ public class EmployeeController {
 				, employee.getPhoneNumber()
 				, employee.getOccupation()
 				, employee.getClearance()
+				, employee.getLocation()
 				, employee.getImg()
 		//		, employee.getProjects()
 				);

@@ -26,7 +26,7 @@ public class ProjectService {
 		}
 		
 		return ResponseEntity
-				.status(200)
+				.status(201)
 				.header("Message", "Project created")
 				.body(repo.save(project));
 	}
