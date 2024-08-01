@@ -1,5 +1,6 @@
 package com.skillstorm.models;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -51,8 +54,14 @@ public class Employee
 	@Column(name = "img")
 	private String img;
 	
-	//many to many -- handle later
-	//private Project[] projects
+	@ManyToMany
+	@JoinTable(
+			  name = "employee_project"
+			, joinColumns = @JoinColumn(name = "employee_id")
+			, inverseJoinColumns = @JoinColumn(name = "project_id")
+			)
+	@JsonIgnoreProperties({"employees", "minClearance"})
+	private List<Project> projects;
 	
 	public Employee()
 	{
@@ -70,7 +79,7 @@ public class Employee
 			, Clearance clearance
 			, Location location
 			, String img
-		//	, Project[] projects 
+			, List<Project> projects 
 			)
 	{
 		super();
@@ -83,7 +92,7 @@ public class Employee
 		this.clearance = clearance;
 		this.location = location;
 		this.img = img;
-		//this.projects = projects;
+		this.projects = projects;
 	}
 
 
@@ -164,6 +173,15 @@ public class Employee
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 

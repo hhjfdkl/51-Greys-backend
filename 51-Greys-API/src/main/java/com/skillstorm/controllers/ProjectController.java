@@ -65,7 +65,7 @@ public class ProjectController {
 				, project.getDescription()
 				, project.getMinClearance()
 				, project.getImg()
-		//		, project.getEmployees()
+				, project.getEmployees()
 				);
 	}
 	

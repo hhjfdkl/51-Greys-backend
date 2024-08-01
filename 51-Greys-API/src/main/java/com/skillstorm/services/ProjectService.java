@@ -1,10 +1,13 @@
 package com.skillstorm.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Clearance;
+import com.skillstorm.models.Employee;
 import com.skillstorm.models.Project;
 import com.skillstorm.repositories.ProjectRepository;
 
@@ -76,7 +79,7 @@ public class ProjectService {
 			, String description
 			, Clearance minClearance
 			, String img
-		//	, Employee[] employees
+			, List<Employee> employees
 			)
 	{
 		if(!repo.existsById(id))
@@ -96,7 +99,7 @@ public class ProjectService {
 						, description
 						, minClearance
 						, img
-					//	, employees
+						, employees
 						)
 					)
 				);

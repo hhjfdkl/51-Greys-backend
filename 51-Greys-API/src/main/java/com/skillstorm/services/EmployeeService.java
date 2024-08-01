@@ -1,5 +1,7 @@
 package com.skillstorm.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Employee;
 import com.skillstorm.models.Location;
+import com.skillstorm.models.Project;
 import com.skillstorm.repositories.EmployeeRepository;
 
 @Service
@@ -74,7 +77,7 @@ public class EmployeeService
 			, Clearance clearance
 			, Location location
 			, String img
-	//		, Project[] projects
+			, List<Project> projects
 			)
 	{
 		if(!repo.existsById(id))
@@ -97,7 +100,7 @@ public class EmployeeService
 						, clearance
 						, location
 						, img
-					//	, projects
+						, projects
 						)
 					)
 				);

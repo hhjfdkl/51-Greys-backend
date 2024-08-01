@@ -1,5 +1,6 @@
 package com.skillstorm.models;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -36,8 +38,10 @@ public class Project {
 	@Column(name = "img")
 	private String img;
 	
-	//many to many with employees
-	//private Employee[] employees;
+	@ManyToMany(mappedBy = "projects")
+	@JsonIgnoreProperties({"projects", "clearance", "location"})
+	private List<Employee> employees;
+	
 	
 	public Project()
 	{
@@ -50,7 +54,7 @@ public class Project {
 			, String description
 			, Clearance minClearance
 			, String img
-		//	, Employee[] employees
+			, List<Employee> employees
 			)
 	{
 		super();
@@ -59,7 +63,7 @@ public class Project {
 		this.description = description;
 		this.minClearance = minClearance;
 		this.img = img;
-	//	this.employees = employees;
+		this.employees = employees;
 	}
 
 	public int getId() {
@@ -92,6 +96,14 @@ public class Project {
 
 	public void setMinClearance(Clearance minClearance) {
 		this.minClearance = minClearance;
+	}
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 
 	public String getImg() {

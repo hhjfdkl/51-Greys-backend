@@ -68,7 +68,7 @@ public class EmployeeController {
 				, employee.getClearance()
 				, employee.getLocation()
 				, employee.getImg()
-		//		, employee.getProjects()
+				, employee.getProjects()
 				);
 	}
 	
