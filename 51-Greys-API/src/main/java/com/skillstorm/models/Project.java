@@ -7,10 +7,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -38,7 +40,11 @@ public class Project {
 	@Column(name = "img")
 	private String img;
 	
-	@ManyToMany(mappedBy = "projects")
+	
+	@ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
+//	@JoinTable(name = "employee_project"			//this lets us delete from project side also
+//	, joinColumns=@JoinColumn(name="project_id")	
+//	, inverseJoinColumns=@JoinColumn(name="employee_id"))
 	@JsonIgnoreProperties({"projects", "clearance", "location"})
 	private List<Employee> employees;
 	
