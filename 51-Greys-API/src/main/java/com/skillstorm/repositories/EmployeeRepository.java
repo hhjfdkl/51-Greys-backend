@@ -12,6 +12,7 @@ import com.skillstorm.models.Employee;
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
 	//Returns a list of employees with the name queried (first or last)
+	//TODO:update this to update with JOIN on clearance and location tables
 	@Query(
 			nativeQuery = true,
 			value =
