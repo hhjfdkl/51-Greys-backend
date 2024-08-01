@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Project;
 import com.skillstorm.repositories.ProjectRepository;
 
@@ -73,7 +74,7 @@ public class ProjectService {
 			  int id
 			, String codename
 			, String description
-			, String minClearance
+			, Clearance minClearance
 			, String img
 		//	, Employee[] employees
 			)

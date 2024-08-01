@@ -34,7 +34,7 @@ VALUES
 , ('Serena','Williams','serwil@earthlink.gov','833-671-1781','Science and Research', 1, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFfjb2I0jARffSB43NMK7HC4IqVwCGC7e-fw&s')
 , ('Kelsey','Williams','kw@yahoo.net','333-333-3333','IT', 3, 1, 'https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg')
 , ('Lindsay','Lohan','llhan@gmail.gov','645-930-6207','Science and Research', 1, 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lindsay_Lohan_in_2023_%28cropped%29.jpg/495px-Lindsay_Lohan_in_2023_%28cropped%29.jpg')
-, ('Shawn','Stevens','sste@yahoo.net','444-444-4444','Janitor', 5, 1, 'https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.jpg?s=612x612&w=0&k=20&c=NtM9Wbs1DBiGaiowsxJY6wNCnLf0POa65rYEwnZymrM=')
+, ('Jon','Provan','jp@fedmail.net','444-444-4444','Janitor', 5, 1, 'https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.jpg?s=612x612&w=0&k=20&c=NtM9Wbs1DBiGaiowsxJY6wNCnLf0POa65rYEwnZymrM=')
 , ('Billy','Mayes','mayes@sec.gov','859-876-7250','Security and Compliance', 1, 5, 'https://people.com/thmb/XUoRFER8lu0CDhbFFtT0dfbC5Oc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(119x0:121x2)/billy-mays-320-484e91ecfa0447c9a2c1326b141e6a68.jpg')
 , ('Bill','Deters','wdeters@gmail.org','555-555-5555','Security Guard', 4, 1, null)
 , ('Bobby','Johnson','wjohnson@gmail.org','666-666-6666','Science and Research', 2, 9, 'https://st2.depositphotos.com/2931363/6569/i/950/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg')

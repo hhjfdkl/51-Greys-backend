@@ -18,11 +18,14 @@ public class Clearance {
 
 	@Id
 	@Column(name = "clearance_level")
-	private int id;
+	private int clearanceLevel;
 	
 	@Column(name = "clearance_type")
 	private String clearanceType;
 	
+	@OneToMany(mappedBy = "minClearance", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("minClearance")
+	private List<Project> projects;
 	
 	@OneToMany(mappedBy = "clearance", fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("clearance") 
@@ -33,20 +36,21 @@ public class Clearance {
 		super();
 	}
 	
-	public Clearance(int id, String clearanceType, List<Employee> employees)
+	public Clearance(int clearanceLevel, String clearanceType, List<Project> projects, List<Employee> employees)
 	{
 		super();
-		this.id = id;
+		this.clearanceLevel = clearanceLevel;
 		this.clearanceType = clearanceType;
+		this.projects = projects;
 		this.employees = employees;
 	}
 
-	public int getId() {
-		return id;
+	public int getClearanceLevel() {
+		return clearanceLevel;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setClearanceLevel(int id) {
+		this.clearanceLevel = id;
 	}	
 
 	public String getClearanceType() {
@@ -55,6 +59,14 @@ public class Clearance {
 
 	public void setClearanceType(String clearanceType) {
 		this.clearanceType = clearanceType;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 	public List<Employee> getEmployees() {
@@ -67,12 +79,12 @@ public class Clearance {
 	
 	@Override
 	public String toString() {
-		return "Clearance [id=" + id + ", clearanceType=" + clearanceType + "]";
+		return "Clearance [id=" + clearanceLevel + ", clearanceType=" + clearanceType + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(clearanceType, id);
+		return Objects.hash(clearanceType, clearanceLevel);
 	}
 
 	@Override
@@ -84,7 +96,7 @@ public class Clearance {
 		if (getClass() != obj.getClass())
 			return false;
 		Clearance other = (Clearance) obj;
-		return Objects.equals(clearanceType, other.clearanceType) && id == other.id;
+		return Objects.equals(clearanceType, other.clearanceType) && clearanceLevel == other.clearanceLevel;
 	}
 	
 	

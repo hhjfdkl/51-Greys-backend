@@ -2,11 +2,15 @@ package com.skillstorm.models;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,8 +28,10 @@ public class Project {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "min_clearance")
-	private String minClearance;
+	@ManyToOne
+	@JoinColumn(name = "min_clearance", referencedColumnName = "clearance_level")
+	@JsonIgnoreProperties("projects")
+	private Clearance minClearance;
 	
 	@Column(name = "img")
 	private String img;
@@ -42,7 +48,7 @@ public class Project {
 			  int id
 			, String codename
 			, String description
-			, String minClearance
+			, Clearance minClearance
 			, String img
 		//	, Employee[] employees
 			)
@@ -80,11 +86,11 @@ public class Project {
 		this.description = description;
 	}
 
-	public String getMinClearance() {
+	public Clearance getMinClearance() {
 		return minClearance;
 	}
 
-	public void setMinClearance(String minClearance) {
+	public void setMinClearance(Clearance minClearance) {
 		this.minClearance = minClearance;
 	}
 
