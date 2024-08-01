@@ -24,11 +24,11 @@ public class Clearance {
 	private String clearanceType;
 	
 	@OneToMany(mappedBy = "minClearance", fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("minClearance")
+	@JsonIgnoreProperties({"minClearance", "employees"})
 	private List<Project> projects;
 	
 	@OneToMany(mappedBy = "clearance", fetch = FetchType.LAZY)
-	@JsonIgnoreProperties("clearance") 
+	@JsonIgnoreProperties({"clearance", "projects"}) 
 	private List<Employee> employees;
 	
 	public Clearance()
