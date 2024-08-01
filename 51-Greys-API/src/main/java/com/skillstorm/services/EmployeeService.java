@@ -51,7 +51,7 @@ public class EmployeeService
 		if(!repo.existsById(id))
 		{
 			return ResponseEntity
-					.status(200)
+					.status(404)
 					.header("Error", "Unable to find employee by ID provided - try again")
 					.body(null);
 		}
