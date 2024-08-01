@@ -2,11 +2,15 @@ package com.skillstorm.models;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -34,8 +38,10 @@ public class Employee
 	@Column(name = "occupation")
 	private String occupation;
 	
-	@Column(name = "clearance")
-	private String clearance;
+	@ManyToOne
+	@JoinColumn(name = "clearance_level", referencedColumnName = "clearance_level")
+	@JsonIgnoreProperties("employees")
+	private Clearance clearance;
 	
 	@Column(name = "img")
 	private String img;
@@ -56,7 +62,7 @@ public class Employee
 			, String email
 			, String phoneNumber
 			, String occupation
-			, String clearance
+			, Clearance clearance
 			, String img
 		//	, Project[] projects 
 			)
@@ -134,12 +140,12 @@ public class Employee
 	}
 
 
-	public String getClearance() {
+	public Clearance getClearance() {
 		return clearance;
 	}
 
 
-	public void setClearance(String clearance) {
+	public void setClearance(Clearance clearance) {
 		this.clearance = clearance;
 	}
 
