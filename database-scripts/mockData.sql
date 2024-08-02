@@ -23,26 +23,9 @@ VALUES
 , ( 'Cincinnati' , 'Ohio', 'United States of America', 39.10, -84.51)
 ;
 
-
-INSERT INTO employee (first_name, last_name, email, phone_number, occupation, clearance_level, location_id, img)
-VALUES 
-  ('Nate','Koroman','nk@fedmail.net','111-111-1111', 'Fry Cook' , 5, 1, null)
-, ('Noah', 'Chun', 'nc@fedmail.net', '111-111-1111', 'Cashier' , 5, 1, null)
-, ('Yuri', 'Beneche', 'yb@fedmail.net', '111-111-1111', 'Dish Washer & Busser', 5, 1, null)
-, ('Bob','Dole','bdole@51test.gov','735-894-4900','Administration and Management', 1, 2,'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ks_1996_dole.jpg/480px-Ks_1996_dole.jpg')
-, ('Jim','Smith','jsmith@gmail.org','222-222-2222','Security Guard', 4, 1,null)
-, ('Serena','Williams','serwil@earthlink.gov','833-671-1781','Science and Research', 1, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFfjb2I0jARffSB43NMK7HC4IqVwCGC7e-fw&s')
-, ('Kelsey','Williams','kw@yahoo.net','333-333-3333','IT', 3, 1, 'https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg')
-, ('Lindsay','Lohan','llhan@gmail.gov','645-930-6207','Science and Research', 1, 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lindsay_Lohan_in_2023_%28cropped%29.jpg/495px-Lindsay_Lohan_in_2023_%28cropped%29.jpg')
-, ('Jon','Provan','jp@fedmail.net','444-444-4444','Janitor', 5, 1, 'https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.jpg?s=612x612&w=0&k=20&c=NtM9Wbs1DBiGaiowsxJY6wNCnLf0POa65rYEwnZymrM=')
-, ('Billy','Mayes','mayes@sec.gov','859-876-7250','Security and Compliance', 1, 5, 'https://people.com/thmb/XUoRFER8lu0CDhbFFtT0dfbC5Oc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(119x0:121x2)/billy-mays-320-484e91ecfa0447c9a2c1326b141e6a68.jpg')
-, ('Bill','Deters','wdeters@gmail.org','555-555-5555','Security Guard', 4, 1, null)
-, ('Bobby','Johnson','wjohnson@gmail.org','666-666-6666','Science and Research', 2, 9, 'https://st2.depositphotos.com/2931363/6569/i/950/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg')
-, ('Sephanie','Jacobs','sj@yahoo.net','777-777-7777','Security Guard', 4, 1, null)
-;
-
 INSERT INTO project (codename, description, min_clearance, priority, img)
 VALUES
+
   ('ACFs -- Research','', 2,'Medium',null)
 , ('FRPc -- Containment III','', 4,'Very High',null)
 , ('FRPr -- Containment I','', 4,'Low',null)
@@ -50,10 +33,20 @@ VALUES
 , ('Prepare Food','Cook the burgers and serve the drinks', 5,'Low','https://www.shutterstock.com/image-photo/classic-hamburger-stock-photo-isolated-600nw-2282033179.jpg')
 ;
 
-INSERT INTO employee_project(employee_id, project_id)
-VALUES
-  (1, 5)
-, (2, 5)
-, (3, 5)
-, (9, 5)
+INSERT INTO employee (first_name, last_name, email, phone_number, occupation, clearance_level, location_id, project_id, img)
+VALUES 
+  ('Nate','Koroman','nk@fedmail.net','111-111-1111', 'Fry Cook' , 5, 1, 5, null)
+, ('Noah', 'Chun', 'nc@fedmail.net', '111-111-1111', 'Cashier' , 5, 1, 5, null)
+, ('Yuri', 'Beneche', 'yb@fedmail.net', '111-111-1111', 'Dish Washer & Busser', 5, 1, 5, null)
+, ('Bob','Dole','bdole@51test.gov','735-894-4900','Administration and Management', 1, 2, null, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ks_1996_dole.jpg/480px-Ks_1996_dole.jpg')
+, ('Jim','Smith','jsmith@gmail.org','222-222-2222','Security Guard', 4, 1, null, null)
+, ('Serena','Williams','serwil@earthlink.gov','833-671-1781','Science and Research', 1, 3, null, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFfjb2I0jARffSB43NMK7HC4IqVwCGC7e-fw&s')
+, ('Kelsey','Williams','kw@yahoo.net','333-333-3333','IT', 3, 1, null, 'https://www.shutterstock.com/shutterstock/photos/1865153395/display_1500/stock-photo-portrait-of-young-smiling-woman-looking-at-camera-with-crossed-arms-happy-girl-standing-in-1865153395.jpg')
+, ('Lindsay','Lohan','llhan@gmail.gov','645-930-6207','Science and Research', 1, 4, null, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lindsay_Lohan_in_2023_%28cropped%29.jpg/495px-Lindsay_Lohan_in_2023_%28cropped%29.jpg')
+, ('Jon','Provan','jp@fedmail.net','444-444-4444','Janitor', 5, 1, 5, null)
+, ('Billy','Mayes','mayes@sec.gov','859-876-7250','Security and Compliance', 1, 5, null, 'https://people.com/thmb/XUoRFER8lu0CDhbFFtT0dfbC5Oc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(119x0:121x2)/billy-mays-320-484e91ecfa0447c9a2c1326b141e6a68.jpg')
+, ('Bill','Deters','wdeters@gmail.org','555-555-5555','Security Guard', 4, 1, null, null)
+, ('Bobby','Johnson','wjohnson@gmail.org','666-666-6666','Science and Research', 2, 9, null, 'https://st2.depositphotos.com/2931363/6569/i/950/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.jpg')
+, ('Sephanie','Jacobs','sj@yahoo.net','777-777-7777','Security Guard', 4, 1, null, null)
 ;
+

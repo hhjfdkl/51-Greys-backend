@@ -77,7 +77,7 @@ public class EmployeeService
 			, Clearance clearance
 			, Location location
 			, String img
-			, List<Project> projects
+			, Project project
 			)
 	{
 		if(!repo.existsById(id))
@@ -100,7 +100,7 @@ public class EmployeeService
 						, clearance
 						, location
 						, img
-						, projects
+						, project
 						)
 					)
 				);

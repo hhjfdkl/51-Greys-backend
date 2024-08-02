@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,10 +42,7 @@ public class Project {
 	private String img;
 	
 	
-	@ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
-//	@JoinTable(name = "employee_project"			//this lets us delete from project side also
-//	, joinColumns=@JoinColumn(name="project_id")	
-//	, inverseJoinColumns=@JoinColumn(name="employee_id"))
+	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
 	@JsonIgnoreProperties({"projects", "clearance", "location"})
 	private List<Employee> employees;
 	

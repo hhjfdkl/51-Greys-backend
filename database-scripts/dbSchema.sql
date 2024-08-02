@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS employee_project, project, employee, location, clearance CASCADE;
+DROP TABLE IF EXISTS project, employee, location, clearance CASCADE;
 
 CREATE TABLE clearance (
 	  clearance_level INT
@@ -54,18 +54,11 @@ CREATE TABLE employee (
     , occupation VARCHAR(64)
     , clearance_level INT
     , location_id INT
+    , project_id INT
     , img VARCHAR(4096)
     
     , CONSTRAINT PRIMARY KEY (employee_id)
+    , CONSTRAINT FOREIGN KEY (project_id) REFERENCES project (project_id)
     , CONSTRAINT FOREIGN KEY (clearance_level) REFERENCES clearance (clearance_level)
     , CONSTRAINT FOREIGN KEY (location_id) REFERENCES location (location_id)
-);
-
-CREATE TABLE employee_project (
-	  employee_id INT
-    , project_id INT
-    
-    , CONSTRAINT PRIMARY KEY (employee_id, project_id)
-    , CONSTRAINT FOREIGN KEY (employee_id) REFERENCES employee (employee_id)
-    , CONSTRAINT FOREIGN KEY (project_id) REFERENCES project (project_id)
 );

@@ -54,14 +54,10 @@ public class Employee
 	@Column(name = "img")
 	private String img;
 	
-	@ManyToMany
-	@JoinTable(
-			  name = "employee_project"
-			, joinColumns = @JoinColumn(name = "employee_id")
-			, inverseJoinColumns = @JoinColumn(name = "project_id")
-			)
+	@ManyToOne
+	@JoinColumn(name="project_id", referencedColumnName = "project_id")
 	@JsonIgnoreProperties({"employees", "minClearance"})
-	private List<Project> projects;
+	private Project project;
 	
 	public Employee()
 	{
@@ -79,7 +75,7 @@ public class Employee
 			, Clearance clearance
 			, Location location
 			, String img
-			, List<Project> projects 
+			, Project project
 			)
 	{
 		super();
@@ -92,7 +88,7 @@ public class Employee
 		this.clearance = clearance;
 		this.location = location;
 		this.img = img;
-		this.projects = projects;
+		this.project = project;
 	}
 
 
@@ -175,13 +171,13 @@ public class Employee
 		this.location = location;
 	}
 
-	public List<Project> getProjects() {
-		return projects;
+	public Project getProject() {
+		return project;
 	}
 
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 
