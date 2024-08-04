@@ -1,11 +1,19 @@
 package com.skillstorm.services;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.skillstorm.misc.StringManipulator;
 import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Employee;
 import com.skillstorm.models.Location;
@@ -16,6 +24,12 @@ import com.skillstorm.repositories.EmployeeRepository;
 public class EmployeeService 
 {
 
+	@Value("${sp-login.username}")
+	private String username;
+	
+	@Value("${sp-login.password}")
+	private String password;
+	
 	@Autowired
 	private EmployeeRepository repo;
 	
@@ -23,12 +37,37 @@ public class EmployeeService
 	public ResponseEntity<Employee> createEmployee(Employee employee)
 	{
 		//we might need to decide on some check for when an employee creation is invalid
-		
+		String req = StringManipulator.getInstance()
+		.userPostRequest(
+				  employee.getFirstName()
+				, employee.getLastName()
+				, employee.getEmail());
+		//should confirm we actually posted to sailpoint here
+		employee.setSpId(StringManipulator.getInstance().findUserId(createUser(req)));
 		
 		return ResponseEntity
 				.status(201)
 				.header("Message", "Employee created")
 				.body(repo.save(employee));
+	}
+	
+	public String createUser(String user)
+	{
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setBasicAuth(username, password);
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(user, headers);
+		ResponseEntity<String> response =
+				template.exchange(
+						"http://172.174.175.230:8080/identityiq/scim/v2/Users"
+						, HttpMethod.POST
+						, entity
+						, String.class
+						);
+		//if statement for when not a 201 response
+		return response.getBody();
 	}
 	
 	
@@ -66,6 +105,25 @@ public class EmployeeService
 	}
 	
 	
+	public String getUserById(String id)
+	{
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setBasicAuth(username, password);
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		ResponseEntity<String> response = 
+				template.exchange(
+						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						, HttpMethod.GET
+						, entity
+						, String.class
+						);
+		//if statement for when not a 200 response
+		return response.getBody();
+	}
+	
+	
 	//UPDATE
 	public ResponseEntity<Employee> updateEmployee(
 			  int id
@@ -87,6 +145,18 @@ public class EmployeeService
 					.header("Error", "Unable to find employee specified - try again.")
 					.body(null);
 		}
+		//get employee to pull SP ID from backend then get info from SP to send back and update
+		//needs exceptions handling / if statement
+		String spId = repo.findById(id).get().getSpId();
+		//same for here when we pull from SP (in case nothing comes back)
+		String user = getUserById(spId);
+		String userName = StringManipulator.getInstance()
+				.findUserName(user);
+		String body = StringManipulator.getInstance()
+				.userPutRequest(userName, firstName, lastName, email);
+		//check here as well
+		updateUser(spId, body);
+		
 		return ResponseEntity
 				.status(200)
 				.header("Message", "Employee successfully updated")
@@ -105,6 +175,28 @@ public class EmployeeService
 					)
 				);
 	}
+	
+	public String updateUser(String id, String body)
+	{
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.setBasicAuth(username, password);
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(body, headers);
+		ResponseEntity<String> response = 
+				template.exchange(
+						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						, HttpMethod.PUT
+						, entity
+						, String.class
+						);
+		//if statement for when not 200 response
+		return response.getBody();
+	}
+	
+	
+	
 	
 	
 	//DELETE

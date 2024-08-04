@@ -54,6 +54,19 @@ public class Employee
 	@Column(name = "img")
 	private String img;
 	
+	@Column(name = "sp_id")
+	private String spId;
+	
+	public String getSpId() {
+		return spId;
+	}
+
+
+	public void setSpId(String spId) {
+		this.spId = spId;
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name="project_id", referencedColumnName = "project_id")
 	@JsonIgnoreProperties({"employees", "minClearance"})
