@@ -120,7 +120,7 @@ public class ProjectService {
 		Project response = repo.findById(id).get();
 		repo.deleteById(id);
 		return ResponseEntity
-				.status(200)
+				.status(204)
 				.header("Message", "Project successfully deleted.")
 				.body(response);
 	}

@@ -118,7 +118,7 @@ public class LocationService {
 		Location response = repo.findById(id).get();
 		repo.deleteById(id);
 		return ResponseEntity
-				.status(200)
+				.status(204)
 				.header("Message", "Location successfully deleted.")
 				.body(response);
 	}

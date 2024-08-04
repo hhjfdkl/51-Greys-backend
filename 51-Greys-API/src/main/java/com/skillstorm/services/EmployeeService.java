@@ -24,7 +24,8 @@ public class EmployeeService
 	{
 		//we might need to decide on some check for when an employee creation is invalid
 		
-		
+		//add method to ping SailPoint here to create a user
+		//conditional on 201 response
 		return ResponseEntity
 				.status(201)
 				.header("Message", "Employee created")
@@ -87,6 +88,8 @@ public class EmployeeService
 					.header("Error", "Unable to find employee specified - try again.")
 					.body(null);
 		}
+		//get request to SP user to check if email there is the same as this one
+		//if they don't equal, send a put request to SP		
 		return ResponseEntity
 				.status(200)
 				.header("Message", "Employee successfully updated")
@@ -117,10 +120,12 @@ public class EmployeeService
 					.header("Error", "Unable to find employee specified - try again.")
 					.body(null);
 		}
+		//send delete request to SP - if not 204, send a 404 SailPoint error
+		
 		Employee response = repo.findById(id).get();
 		repo.deleteById(id);
 		return ResponseEntity
-				.status(200)
+				.status(204)
 				.header("Message", "Employee successfully deleted.")
 				.body(response);
 	}
