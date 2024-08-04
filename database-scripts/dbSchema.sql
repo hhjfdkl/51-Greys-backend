@@ -46,7 +46,7 @@ CREATE TABLE project (
 );
 
 CREATE TABLE employee (
-	  employee_id INT AUTO_INCREMENT
+	  employee_id VARCHAR(64)
     , first_name VARCHAR(128) NOT NULL
     , last_name VARCHAR(128) NOT NULL
     , email VARCHAR(256)

@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "sp-login.username",
+    "type": "java.lang.String",
+    "description": "A description for 'sp-login.username'"
+  },
+  {
+    "name": "sp-login.password",
+    "type": "java.lang.String",
+    "description": "A description for 'sp-login.password'"
+  },
+  {
+    "name": "sp.url",
+    "type": "java.lang.String",
+    "description": "A description for 'sp.url'"
+  },
+  {
+    "name": "sp.clearance-endpoint",
+    "type": "java.lang.String",
+    "description": "A description for 'sp.clearance-endpoint'"
+  },
+  {
+    "name": "sp.employee-endpoint",
+    "type": "java.lang.String",
+    "description": "A description for 'sp.employee-endpoint'"
+  }
+]}

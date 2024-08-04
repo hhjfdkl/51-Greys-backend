@@ -1,11 +1,20 @@
 package com.skillstorm.services;
 
+import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.skillstorm.misc.StringManipulator;
 import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Employee;
 import com.skillstorm.models.Location;
@@ -15,7 +24,17 @@ import com.skillstorm.repositories.EmployeeRepository;
 @Service
 public class EmployeeService 
 {
-
+	@Value("${sp-login.username}")
+	private String username;
+	
+	@Value("${sp-login.password}")
+	private String password;
+	
+	@Value("${sp.url}" + "${sp.employee-endpoint}")
+	private String url;
+	
+	
+	
 	@Autowired
 	private EmployeeRepository repo;
 	
@@ -26,12 +45,35 @@ public class EmployeeService
 		
 		//add method to ping SailPoint here to create a user
 		//conditional on 201 response
+		ResponseEntity<String> temp = this.createUserSP(
+				employee.getFirstName()
+				, employee.getLastName()
+				, employee.getEmail());
+		String empId = StringManipulator.getInstance()
+		.findUserId(temp.getBody());
+		employee.setId(empId);
 		return ResponseEntity
 				.status(201)
 				.header("Message", "Employee created")
 				.body(repo.save(employee));
 	}
 	
+	public ResponseEntity<String> createUserSP(String firstName, String lastName, String email)
+	{
+		String userReq = StringManipulator.getInstance()
+				.userRequest(firstName, lastName, email);
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		String authString = Base64.getEncoder()
+				.encodeToString(
+						(username + ":" + password)
+						.getBytes()
+						);
+		headers.setBasicAuth(authString);
+		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(userReq, headers);
+		return template.exchange(url, HttpMethod.POST, entity, String.class);
+	}
 	
 	//READ
 	public ResponseEntity<Iterable<Employee>> getAllEmployees()
@@ -69,7 +111,7 @@ public class EmployeeService
 	
 	//UPDATE
 	public ResponseEntity<Employee> updateEmployee(
-			  int id
+			  String id
 			, String firstName
 			, String lastName
 			, String email
