@@ -1,1 +1,0 @@
-az mysql flexible-server execute -n 51-greys-test-database -u greysdb -p Mother1! -d testdb --file-path <path-to-file>
