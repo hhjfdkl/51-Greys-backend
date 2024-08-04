@@ -103,6 +103,34 @@ public class Employee
 		this.img = img;
 		this.project = project;
 	}
+	
+	public Employee(
+			  int id
+			, String firstName
+			, String lastName
+			, String email
+			, String phoneNumber
+			, String occupation
+			, Clearance clearance
+			, Location location
+			, String img
+			, String spId
+			, Project project
+			)
+	{
+		super();
+		this.id = id; 
+		this.firstName = firstName; 
+		this.lastName = lastName; 
+		this.email = email; 
+		this.phoneNumber = phoneNumber;
+		this.occupation = occupation;
+		this.clearance = clearance;
+		this.location = location;
+		this.img = img;
+		this.spId = spId;
+		this.project = project;
+	}
 
 
 	public int getId() {
