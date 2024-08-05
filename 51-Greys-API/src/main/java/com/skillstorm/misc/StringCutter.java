@@ -2,26 +2,26 @@ package com.skillstorm.misc;
 
 import java.util.Random;
 
-public class StringManipulator {
+public class StringCutter {
 	
-	private static StringManipulator c;
+	private static StringCutter c;
 	
-	private StringManipulator() {}
+	private StringCutter() {}
 	
-	public static StringManipulator getInstance()
+	public static StringCutter getInstance()
 	{
 		if(c==null)
-			c = new StringManipulator();
+			c = new StringCutter();
 		return c;
 	}
 	
 //manually construct a user post json
 	public String userPostRequest(String firstName, String lastName, String email)
-	{		
-		String result = "{\"userName\":\"E";
-		for(int i = 0; i < 14; i++)
-			result += new Random().nextInt(10);
-		result += "\",\"name\":{\"givenName\":\"" 
+	{	
+		long time = System.currentTimeMillis() / 1000L;
+		String result = "{\"userName\":\"E"
+				+ time
+				+ "\",\"name\":{\"givenName\":\"" 
 				+ firstName 
 				+ "\",\"familyName\":\""
 				+ lastName

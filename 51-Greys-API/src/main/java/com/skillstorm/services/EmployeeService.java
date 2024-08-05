@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.skillstorm.misc.StringManipulator;
+import com.skillstorm.misc.StringCutter;
 import com.skillstorm.models.Clearance;
 import com.skillstorm.models.Employee;
 import com.skillstorm.models.Location;
@@ -37,13 +37,13 @@ public class EmployeeService
 	public ResponseEntity<Employee> createEmployee(Employee employee)
 	{
 		//we might need to decide on some check for when an employee creation is invalid
-		String req = StringManipulator.getInstance()
+		String req = StringCutter.getInstance()
 		.userPostRequest(
 				  employee.getFirstName()
 				, employee.getLastName()
 				, employee.getEmail());
 		//should confirm we actually posted to sailpoint here
-		employee.setSpId(StringManipulator.getInstance().findUserId(createUser(req)));
+		employee.setSpId(StringCutter.getInstance().findUserId(createUser(req)));
 		
 		return ResponseEntity
 				.status(201)
@@ -150,9 +150,9 @@ public class EmployeeService
 		String spId = repo.findById(id).get().getSpId();
 		//same for here when we pull from SP (in case nothing comes back)
 		String user = getUserById(spId);
-		String userName = StringManipulator.getInstance()
+		String userName = StringCutter.getInstance()
 				.findUserName(user);
-		String body = StringManipulator.getInstance()
+		String body = StringCutter.getInstance()
 				.userPutRequest(userName, firstName, lastName, email);
 		//check here as well
 		updateUser(spId, body);
@@ -211,11 +211,28 @@ public class EmployeeService
 					.body(null);
 		}
 		Employee response = repo.findById(id).get();
+		deleteUser(response.getSpId());
 		repo.deleteById(id);
 		return ResponseEntity
 				.status(200)
 				.header("Message", "Employee successfully deleted.")
 				.body(response);
+	}
+	
+	public String deleteUser(String id)
+	{
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setBasicAuth("spadmin", "admin");
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		ResponseEntity<String> response = 
+				template.exchange(
+						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						, HttpMethod.DELETE
+						, entity
+						, String.class
+						);
+		return response.getBody();
 	}
 	
 }
