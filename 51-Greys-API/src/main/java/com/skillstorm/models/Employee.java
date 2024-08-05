@@ -54,6 +54,19 @@ public class Employee
 	@Column(name = "img")
 	private String img;
 	
+	@Column(name = "sp_id")
+	private String spId;
+	
+	public String getSpId() {
+		return spId;
+	}
+
+
+	public void setSpId(String spId) {
+		this.spId = spId;
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name="project_id", referencedColumnName = "project_id")
 	@JsonIgnoreProperties({"employees", "minClearance"})
@@ -88,6 +101,34 @@ public class Employee
 		this.clearance = clearance;
 		this.location = location;
 		this.img = img;
+		this.project = project;
+	}
+	
+	public Employee(
+			  int id
+			, String firstName
+			, String lastName
+			, String email
+			, String phoneNumber
+			, String occupation
+			, Clearance clearance
+			, Location location
+			, String img
+			, String spId
+			, Project project
+			)
+	{
+		super();
+		this.id = id; 
+		this.firstName = firstName; 
+		this.lastName = lastName; 
+		this.email = email; 
+		this.phoneNumber = phoneNumber;
+		this.occupation = occupation;
+		this.clearance = clearance;
+		this.location = location;
+		this.img = img;
+		this.spId = spId;
 		this.project = project;
 	}
 
