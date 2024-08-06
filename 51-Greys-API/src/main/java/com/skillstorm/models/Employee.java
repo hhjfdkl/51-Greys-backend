@@ -48,7 +48,7 @@ public class Employee
 	
 	@ManyToOne
 	@JoinColumn(name = "location_id", referencedColumnName = "location_id")
-	@JsonIgnoreProperties("employees")
+	@JsonIgnoreProperties({"employees.projects","employees.location", "employees.clearance"})
 	private Location location;
 	
 	@Column(name = "img")
