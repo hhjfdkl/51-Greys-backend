@@ -24,11 +24,16 @@ import com.skillstorm.repositories.EmployeeRepository;
 public class EmployeeService 
 {
 
+	StringCutter c = new StringCutter();
+	
 	@Value("${sp-login.username}")
 	private String username;
 	
 	@Value("${sp-login.password}")
 	private String password;
+	
+	@Value("${sp-url}")
+	private String url;
 	
 	@Autowired
 	private EmployeeRepository repo;
@@ -37,13 +42,13 @@ public class EmployeeService
 	public ResponseEntity<Employee> createEmployee(Employee employee)
 	{
 		//we might need to decide on some check for when an employee creation is invalid
-		String req = StringCutter.getInstance()
+		String req = c
 		.userPostRequest(
 				  employee.getFirstName()
 				, employee.getLastName()
 				, employee.getEmail());
 		//should confirm we actually posted to sailpoint here
-		employee.setSpId(StringCutter.getInstance().findUserId(createUser(req)));
+		employee.setSpId(c.findUserId(createUser(req)));
 		
 		return ResponseEntity
 				.status(201)
@@ -61,7 +66,7 @@ public class EmployeeService
 		HttpEntity<String> entity = new HttpEntity<>(user, headers);
 		ResponseEntity<String> response =
 				template.exchange(
-						"http://172.174.175.230:8080/identityiq/scim/v2/Users"
+						  url + "/Users"
 						, HttpMethod.POST
 						, entity
 						, String.class
@@ -114,7 +119,7 @@ public class EmployeeService
 		HttpEntity<String> entity = new HttpEntity<>(headers);
 		ResponseEntity<String> response = 
 				template.exchange(
-						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						  url + "/Users/" + id
 						, HttpMethod.GET
 						, entity
 						, String.class
@@ -150,9 +155,9 @@ public class EmployeeService
 		String spId = repo.findById(id).get().getSpId();
 		//same for here when we pull from SP (in case nothing comes back)
 		String user = getUserById(spId);
-		String userName = StringCutter.getInstance()
+		String userName = c
 				.findUserName(user);
-		String body = StringCutter.getInstance()
+		String body = c
 				.userPutRequest(userName, firstName, lastName, email);
 		//check here as well
 		updateUser(spId, body);
@@ -187,7 +192,7 @@ public class EmployeeService
 		HttpEntity<String> entity = new HttpEntity<>(body, headers);
 		ResponseEntity<String> response = 
 				template.exchange(
-						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						  url + "/Users/" + id
 						, HttpMethod.PUT
 						, entity
 						, String.class
@@ -227,7 +232,7 @@ public class EmployeeService
 		HttpEntity<String> entity = new HttpEntity<>(headers);
 		ResponseEntity<String> response = 
 				template.exchange(
-						  "http://172.174.175.230:8080/identityiq/scim/v2/Users/" + id
+						  url + "/Users/" + id
 						, HttpMethod.DELETE
 						, entity
 						, String.class

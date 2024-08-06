@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class StringCutter {
 	
-	private static StringCutter c;
-	
-	private StringCutter() {}
-	
-	public static StringCutter getInstance()
-	{
-		if(c==null)
-			c = new StringCutter();
-		return c;
-	}
+//	private static StringCutter c;
+//	
+//	private StringCutter() {}
+//	
+//	public static StringCutter getInstance()
+//	{
+//		if(c==null)
+//			c = new StringCutter();
+//		return c;
+//	}
 	
 //manually construct a user post json
 	public String userPostRequest(String firstName, String lastName, String email)

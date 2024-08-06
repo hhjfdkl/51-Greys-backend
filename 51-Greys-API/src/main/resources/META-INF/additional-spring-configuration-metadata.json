@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "sp-login.username",
+    "type": "java.lang.String",
+    "description": "auth to access SailPoint"
+  },
+  {
+    "name": "sp-login.password",
+    "type": "java.lang.String",
+    "description": "auth to access SailPoint"
+  },
+  {
+    "name": "sp-url",
+    "type": "java.lang.String",
+    "description": "URL for SailPoint API"
+  }
+]}

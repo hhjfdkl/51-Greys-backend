@@ -1,0 +1,1652 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application authoritative="true" connector="sailpoint.connector.AzureADConnector" created="1722867484761" featuresString="AUTHENTICATE, PROVISIONING, SYNC_PROVISIONING, PASSWORD, ENABLE, SEARCH" icon="internetIcon" id="0a09000491131850819122e788581d00" modified="1722885583238" name="Entra ID" profileClass="" type="Azure Active Directory">
+  <AccountCorrelationConfig>
+    <Reference class="sailpoint.object.CorrelationConfig" id="0a09000491131850819122f371b81d2d" name="Entra ID"/>
+  </AccountCorrelationConfig>
+  <Attributes>
+    <Map>
+      <entry key="IQServiceConfiguration">
+        <value>
+          <List>
+            <Map>
+              <entry key="IQServiceHost"/>
+              <entry key="IQServicePassword"/>
+              <entry key="IQServicePort"/>
+              <entry key="IQServiceUser"/>
+              <entry key="useTLSForIQService">
+                <value>
+                  <Boolean></Boolean>
+                </value>
+              </entry>
+            </Map>
+          </List>
+        </value>
+      </entry>
+      <entry key="afterProvisioningRule"/>
+      <entry key="authSearchAttributes">
+        <value>
+          <List>
+            <String>userPrincipalName</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="authURL"/>
+      <entry key="beforeProvisioningRule"/>
+      <entry key="clientCertAuthEnabled" value="true"/>
+      <entry key="clientID" value="25452b8d-b469-48ac-bd4f-6f1e81783ae4"/>
+      <entry key="clientSecret" value="1:ACP:QgEuplCCtKy/xLljNBNQf9GYZ2lfNyoucd5TEc0ZBuSxMrDNpbvDljwbTEQSZ51W+WlFCbb97TVCu9HArY4eTg=="/>
+      <entry key="compositeDefinition"/>
+      <entry key="domainName" value="skillstormnextgen.onmicrosoft.com"/>
+      <entry key="enablePIM">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="enableTeamsGovernance">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="enableTeamsNotifications">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="encrypted" value="clientSecret,refresh_token,clientCertificate,private_key,privateKeyPassword,exchangeUserPassword,teamsBotSecret,oauth_token_info"/>
+      <entry key="exchangeUserName"/>
+      <entry key="exchangeUserPassword" value="1:ACP:wckEKeHaYE2hHQCojbEmD4/v4C2gJAJZOiwfhxVWo8g="/>
+      <entry key="grantType" value="CLIENT_CREDENTIALS"/>
+      <entry key="isB2CTenant">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="manageExchangeOnline">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="manageO365Groups">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="pageSize"/>
+      <entry key="password" value="1:ACP:zjBeVrtHCtzBuq3tD1nf3J61Ig0HIBDRdD0MbO6t2cc="/>
+      <entry key="privateKeyPassword" value="1:ACP:wuROxVJo1sbv9LvdBw2s2s70gduJyjg+6srNchDKhYE="/>
+      <entry key="private_key_to_update"/>
+      <entry key="refresh_token" value="1:ACP:dNIwOOzv1OlR3Xp/HiZCc+Fk7zYAcCt6mIiQ+ty0rBw="/>
+      <entry key="samlRequestBody"/>
+      <entry key="subscribedSkus">
+        <value>
+          <List>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>0</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_1e615a51-59db-4807-9957-aa83c3657351"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_1e615a51-59db-4807-9957-aa83c3657351"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="3de81e39-4ce1-47f7-a77f-8473d4eb6d7c"/>
+                      <entry key="servicePlanName" value="DYN365_CS_VOICE_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="81d4ecb8-0481-42fb-8868-51536c5aceeb"/>
+                      <entry key="servicePlanName" value="POWER_AUTOMATE_DYN365_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="54b37829-818e-4e3c-a08a-3ea66ab9b45d"/>
+                      <entry key="servicePlanName" value="POWER_APPS_DYN365_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="33f1466e-63a6-464c-bf6a-d1787928a56a"/>
+                      <entry key="servicePlanName" value="DYNB365_CSI_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="94fb67d3-465f-4d1f-a50a-952da079a564"/>
+                      <entry key="servicePlanName" value="DYN365_CS_ENTERPRISE_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="3bf52bdf-5226-4a97-829e-5cca9b3f3392"/>
+                      <entry key="servicePlanName" value="DYN365_CS_MESSAGING_VIRAL_TRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="ce312d15-8fdf-44c0-9974-a25a177125ee"/>
+                      <entry key="servicePlanName" value="CCIBOTS_PRIVPREV_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="dbe07046-af68-4861-a20d-1c8cbda9194f"/>
+                      <entry key="servicePlanName" value="CUSTOMER_VOICE_DYN365_VIRAL_TRIAL"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="1e615a51-59db-4807-9957-aa83c3657351"/>
+              <entry key="skuPartNumber" value="Dynamics_365_Customer_Service_Enterprise_viral_trial"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>32cdd0b8-43ac-4eeb-8702-3823a55a794d</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="Company"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>0</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_6470687e-a428-4b7a-bef2-8a291ad947c9"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_6470687e-a428-4b7a-bef2-8a291ad947c9"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="a420f25f-a7b3-4ff5-a9d0-5d58f73b537d"/>
+                      <entry key="servicePlanName" value="WINDOWS_STORE"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="6470687e-a428-4b7a-bef2-8a291ad947c9"/>
+              <entry key="skuPartNumber" value="WINDOWS_STORE"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>ca910165-3b10-4649-9107-1a9755687682</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>29</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_f30db892-07e9-47e9-837c-80727f46fd3d"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_f30db892-07e9-47e9-837c-80727f46fd3d"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="17ab22cd-a0b3-4536-910a-cb6eb12696c0"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="50e68c76-46c6-4674-81f9-75456511b170"/>
+                      <entry key="servicePlanName" value="FLOW_P2_VIRAL"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="f30db892-07e9-47e9-837c-80727f46fd3d"/>
+              <entry key="skuPartNumber" value="FLOW_FREE"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>7d994765-ed6c-420a-8238-692619330c21</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>41</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_606b54a9-78d8-4298-ad8b-df6ef4481c80"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_606b54a9-78d8-4298-ad8b-df6ef4481c80"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="5d798708-6473-48ad-9776-3acc301c40af"/>
+                      <entry key="servicePlanName" value="FLOW_CCI_BOTS"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="ce312d15-8fdf-44c0-9974-a25a177125ee"/>
+                      <entry key="servicePlanName" value="CCIBOTS_PRIVPREV_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="cf7034ed-348f-42eb-8bbd-dddeea43ee81"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_CCI_BOTS"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="606b54a9-78d8-4298-ad8b-df6ef4481c80"/>
+              <entry key="skuPartNumber" value="CCIBOTS_PRIVPREV_VIRAL"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>dbe01050-ce69-4645-a036-5489a9fec5ac</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>3</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_dcb1a3ae-b33f-4487-846a-a640262fadf4"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_dcb1a3ae-b33f-4487-846a-a640262fadf4"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="d20bfa21-e9ae-43fc-93c2-20783f0840c3"/>
+                      <entry key="servicePlanName" value="FLOW_P2_VIRAL_REAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="17ab22cd-a0b3-4536-910a-cb6eb12696c0"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="d5368ca3-357e-4acb-9c21-8495fb025d1f"/>
+                      <entry key="servicePlanName" value="POWERAPPS_P2_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="50e68c76-46c6-4674-81f9-75456511b170"/>
+                      <entry key="servicePlanName" value="FLOW_P2_VIRAL"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="dcb1a3ae-b33f-4487-846a-a640262fadf4"/>
+              <entry key="skuPartNumber" value="POWERAPPS_VIRAL"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>2d4d8afd-9d50-47c4-b8f2-f6327b5b41b0</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>46</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_a403ebcc-fae0-4ca2-8c8c-7a907fd6c235"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_a403ebcc-fae0-4ca2-8c8c-7a907fd6c235"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>1000000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="c948ea65-2053-4a5a-8a62-9eaaaf11b522"/>
+                      <entry key="servicePlanName" value="PURVIEW_DISCOVERY"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="2049e525-b859-401b-b2a0-e0a31c4b1fe4"/>
+                      <entry key="servicePlanName" value="BI_AZURE_P0"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="a403ebcc-fae0-4ca2-8c8c-7a907fd6c235"/>
+              <entry key="skuPartNumber" value="POWER_BI_STANDARD"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>3b230840-1a3c-4edf-ae72-8875fabbad72</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>26</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_710779e8-3d4a-4c88-adb9-386c958d1fdf"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_710779e8-3d4a-4c88-adb9-386c958d1fdf"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>100</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="a55dfd10-0864-46d9-a3cd-da5991a3e0e2"/>
+                      <entry key="servicePlanName" value="PROJECT_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="40b010bb-0b69-4654-ac5e-ba161433f4b4"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="f0ff6ac6-297d-49cd-be34-6dfef97f0c28"/>
+                      <entry key="servicePlanName" value="MESH_IMMERSIVE_FOR_TEAMS"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="3efbd4ed-8958-4824-8389-1321f8730af8"/>
+                      <entry key="servicePlanName" value="MESH_AVATARS_ADDITIONAL_FOR_TEAMS"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="dcf9d2f4-772e-4434-b757-77a453cfbc02"/>
+                      <entry key="servicePlanName" value="MESH_AVATARS_FOR_TEAMS"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="6f23d6a9-adbf-481c-8538-b4c095654487"/>
+                      <entry key="servicePlanName" value="M365_LIGHTHOUSE_CUSTOMER_PLAN1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="0683001c-0492-4d59-9515-d9a6426b5813"/>
+                      <entry key="servicePlanName" value="POWER_VIRTUAL_AGENTS_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="bed136c6-b799-4462-824d-fc045d3a9d25"/>
+                      <entry key="servicePlanName" value="CDS_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="42a3ec34-28ba-46b6-992f-db53a675ac5b"/>
+                      <entry key="servicePlanName" value="MCO_TEAMS_IW"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="7547a3fe-08ee-4ccb-b430-5077c5041653"/>
+                      <entry key="servicePlanName" value="YAMMER_ENTERPRISE"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="b8afc642-032e-4de5-8c0a-507a7bba7e5d"/>
+                      <entry key="servicePlanName" value="WHITEBOARD_PLAN1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="5e62787c-c316-451f-b873-1d05acd4d12c"/>
+                      <entry key="servicePlanName" value="BPOS_S_TODO_1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="a23b959c-7ce8-4e57-9140-b90eb88a9e97"/>
+                      <entry key="servicePlanName" value="SWAY"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="c7699d2e-19aa-44de-8edf-1736da088ca1"/>
+                      <entry key="servicePlanName" value="SHAREPOINTSTANDARD"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c"/>
+                      <entry key="servicePlanName" value="POWERAPPS_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="c63d4d19-e8cb-460e-b37c-4d6c34603745"/>
+                      <entry key="servicePlanName" value="OFFICEMOBILE_SUBSCRIPTION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="e95bec33-7c88-4a70-8e19-b10bd9d0c014"/>
+                      <entry key="servicePlanName" value="SHAREPOINTWAC"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="PendingActivation"/>
+                      <entry key="servicePlanId" value="882e1d05-acd1-4ccb-8708-6ee03664b117"/>
+                      <entry key="servicePlanName" value="INTUNE_O365"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="57ff2da0-773e-42df-b2af-ffb7a2317929"/>
+                      <entry key="servicePlanName" value="TEAMS1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="743dd19e-1ce3-4c62-a3ad-49ba8f63a2f6"/>
+                      <entry key="servicePlanName" value="STREAM_O365_E1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="8c7d2df8-86f0-4902-b2ed-a0458298f3b3"/>
+                      <entry key="servicePlanName" value="Deskless"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="94065c59-bc8e-4e8b-89e5-5138d471eaff"/>
+                      <entry key="servicePlanName" value="MICROSOFT_SEARCH"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="b737dad2-2f6c-4c65-90e3-ca563267e8b9"/>
+                      <entry key="servicePlanName" value="PROJECTWORKMANAGEMENT"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="159f4cd6-e380-449f-a816-af1a9ef76344"/>
+                      <entry key="servicePlanName" value="FORMS_PLAN_E1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="33c4f319-9bdd-48d6-9c4d-410b750a4a5a"/>
+                      <entry key="servicePlanName" value="MYANALYTICS_P2"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="0f9b09cb-62d1-4ff4-9129-43f4996f83f4"/>
+                      <entry key="servicePlanName" value="FLOW_O365_P1"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="9aaf7827-d63c-4b61-89c3-182f06f82e5c"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_STANDARD"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="710779e8-3d4a-4c88-adb9-386c958d1fdf"/>
+              <entry key="skuPartNumber" value="TEAMS_EXPLORATORY"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>9c0c7c07-f9af-4f35-919d-68bbcee5e9b5</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>21</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_3f9f06f5-3c31-472c-985f-62d9c10ec167"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_3f9f06f5-3c31-472c-985f-62d9c10ec167"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="6817d093-2d30-4249-8bd6-774f01efa78c"/>
+                      <entry key="servicePlanName" value="POWER_PAGES_VTRIAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="17ab22cd-a0b3-4536-910a-cb6eb12696c0"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_VIRAL"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="3f9f06f5-3c31-472c-985f-62d9c10ec167"/>
+              <entry key="skuPartNumber" value="Power_Pages_vTrial_for_Makers"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>046a5dba-02a3-401d-a70d-c18cf2162f7d</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>1</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_6a4a1628-9b9a-424d-bed5-4118f0ede3fd"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_6a4a1628-9b9a-424d-bed5-4118f0ede3fd"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="3f2afeed-6fb5-4bf9-998f-f2912133aead"/>
+                      <entry key="servicePlanName" value="PROJECT_MADEIRA_PREVIEW_IW"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="6a4a1628-9b9a-424d-bed5-4118f0ede3fd"/>
+              <entry key="skuPartNumber" value="PROJECT_MADEIRA_PREVIEW_IW_SKU"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>6691796d-863b-4495-9791-06bbcd5e3eb6</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+            <Map>
+              <entry key="accountId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d"/>
+              <entry key="accountName" value="reseller-account"/>
+              <entry key="appliesTo" value="User"/>
+              <entry key="capabilityStatus" value="Enabled"/>
+              <entry key="consumedUnits">
+                <value>
+                  <Integer>28</Integer>
+                </value>
+              </entry>
+              <entry key="id" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_5b631642-bd26-49fe-bd20-1daaa972ef80"/>
+              <entry key="objectId" value="33da9f3f-4c1a-4640-8ce1-3f63024aea1d_5b631642-bd26-49fe-bd20-1daaa972ef80"/>
+              <entry key="prepaidUnits">
+                <value>
+                  <Map>
+                    <entry key="enabled">
+                      <value>
+                        <Integer>10000</Integer>
+                      </value>
+                    </entry>
+                    <entry key="lockedOut">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="suspended">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                    <entry key="warning">
+                      <value>
+                        <Integer>0</Integer>
+                      </value>
+                    </entry>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="servicePlans">
+                <value>
+                  <List>
+                    <Map>
+                      <entry key="appliesTo" value="Company"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="113feb6c-3fe4-4440-bddc-54d774bf0318"/>
+                      <entry key="servicePlanName" value="EXCHANGE_S_FOUNDATION"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="d8c638e2-9508-40e3-9877-feb87603837b"/>
+                      <entry key="servicePlanName" value="DYN365_CDS_DEV_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="c7ce3f26-564d-4d3a-878d-d8ab868c85fe"/>
+                      <entry key="servicePlanName" value="FLOW_DEV_VIRAL"/>
+                    </Map>
+                    <Map>
+                      <entry key="appliesTo" value="User"/>
+                      <entry key="provisioningStatus" value="Success"/>
+                      <entry key="servicePlanId" value="a2729df7-25f8-4e63-984b-8a8484121554"/>
+                      <entry key="servicePlanName" value="POWERAPPS_DEV_VIRAL"/>
+                    </Map>
+                  </List>
+                </value>
+              </entry>
+              <entry key="skuId" value="5b631642-bd26-49fe-bd20-1daaa972ef80"/>
+              <entry key="skuPartNumber" value="POWERAPPS_DEV"/>
+              <entry key="subscriptionIds">
+                <value>
+                  <List>
+                    <String>5bf8a3c5-2a5f-4122-ba47-ed9a1d13e66a</String>
+                  </List>
+                </value>
+              </entry>
+            </Map>
+          </List>
+        </value>
+      </entry>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="teamsBotSecret" value="1:ACP:z0D01MlUpoMxVYirxBqX0ljkIYaLSczfRvcMy+L1r6g="/>
+      <entry key="teamsBotUrl"/>
+      <entry key="templateApplication" value="Azure Active Directory"/>
+      <entry key="tenantId"/>
+      <entry key="useMSGraphAPI">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="username"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" id="0a09000490f019a68190f0ca87a000ea" name="spadmin"/>
+  </Owner>
+  <ProvisioningForms>
+    <Form name="Create account" objectType="account" type="Create">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="Create account"/>
+        </Map>
+      </Attributes>
+      <Section label="Account" name="Account">
+        <Field displayName="con_prov_policy_azure_ad_accounttype" name="accountType" postBack="true" reviewRequired="true" section="Account" type="string" value="User">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>User</String>
+                <String>Guest User B2B</String>
+                <String>Local User B2C</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+          <Attributes>
+            <Map>
+              <entry key="hidden">
+                <value>
+                  <Script>
+                    <Source>
+                                   import sailpoint.object.Form;
+                      
+                                   Object objType = field.getValue();
+                                   
+                                   String requiredAttribute = "|userPrincipalName|displayName|mailNickname|password|";
+                                   String booleanAttr = "|sendInvitationMessage|forceChangePasswordNextLogin|accountEnabled|enableLocalAccount|b2cForceChangePasswordNextLogin|enableSocialAccount|";
+                                   String locationAttr = "|invitedUserUsageLocation|usageLocation|";
+                                   
+                                   Form.Section section = null ;
+                                   
+                                   for(Form.Section s : form.getSections()) {
+                               
+                                      if (s != null &amp;&amp; !(objType.equals(s.getName()) ) &amp;&amp; !("Account".equals(s.getName())) ) {
+                                        form.remove(s);
+                                     
+                                      }
+                                   }
+                                   
+                                   
+                                   switch(objType) {
+                                   
+                                      case "Guest User B2B"   : section = form.getSection("Guest User B2B");
+                                                                requiredAttribute = "|invitedUserEmailAddress|inviteRedirectUrl|sendInvitationMessage|";
+                                                                break;
+                                      case "User"             : section = form.getSection("User");
+                                                                requiredAttribute = "|userPrincipalName|displayName|mailNickname|password|";
+                                                                break;
+                                      case "Local User B2C"   : section = form.getSection("Local User B2C");
+                                                                requiredAttribute = "|signInNameType|signInNameValue|localAccountDisplayName|b2cPassword|";
+                                   }
+                                   
+                                   
+                                   if (section != null &amp;&amp; section.getFields() != null ) {
+                                        
+                                        for (Object field : section.getFields()) {
+                                             String name = field.getName();
+                                             if (name != null &amp;&amp; name.indexOf(":") > 0 ) {
+                                                 String[] nameKeys = name.split(":");
+                                                 
+                                                 if( !(nameKeys.length > 2) ) {
+                                                    continue;
+                                                 }
+                                                 
+                                                 if ( requiredAttribute.contains("|" + nameKeys[2] + "|") ) {
+                                                     field.setRequired(true);
+                                                 }
+                                                 
+                                                 if ( booleanAttr.contains("|" + nameKeys[2] + "|") ) {
+                                                     field.setValue("true");
+                                                 }
+                                                 
+                                                 if ( locationAttr.contains("|" + nameKeys[2] + "|") ) {
+                                                     field.setValue("United States;US");
+                                                 }
+                                             }              
+                                          }
+                                   
+                                   }
+                                   
+                                   return false;
+                               </Source>
+                  </Script>
+                </value>
+              </entry>
+            </Map>
+          </Attributes>
+        </Field>
+      </Section>
+      <Section label="User" name="User">
+        <Field displayName="con_prov_policy_azure_ad_userPrincipalName" helpKey="help_con_prov_policy_azure_ad_userPrincipalName" name="userPrincipalName" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_password" helpKey="help_con_prov_policy_azure_ad_password" name="password" reviewRequired="true" section="User" type="secret"/>
+        <Field displayName="con_prov_policy_azure_ad_displayName" helpKey="help_con_prov_policy_azure_ad_displayName" name="displayName" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_mailNickname" helpKey="help_con_prov_policy_azure_ad_mailNickname" name="mailNickname" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_accountEnabled" helpKey="help_con_prov_policy_azure_ad_accountEnabled" name="accountEnabled" reviewRequired="true" section="User" type="boolean" value="true"/>
+        <Field displayName="con_prov_policy_azure_ad_forceChangePassword" helpKey="help_con_prov_policy_azure_ad_forceChangePassword" name="forceChangePasswordNextLogin" reviewRequired="true" section="User" type="boolean" value="true"/>
+        <Field displayName="con_prov_policy_azure_ad_department" helpKey="help_con_prov_policy_azure_ad_department" name="department" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_jobTitle" helpKey="help_con_prov_policy_azure_ad_jobTitle" name="jobTitle" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_isFederatedDomain" helpKey="help_con_prov_policy_azure_ad_isFederatedDomain" name="isFederatedDomain" reviewRequired="true" section="User" type="boolean"/>
+        <Field displayName="con_prov_policy_azure_ad_immutableId" helpKey="help_con_prov_policy_azure_ad_immutableId" name="immutableId" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_passwordPolicies" helpKey="help_con_prov_policy_azure_ad_passwordPolicies" name="passwordPolicies" reviewRequired="true" section="User" type="string">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>DisablePasswordExpiration</String>
+                <String>DisableStrongPassword</String>
+                <String>DisablePasswordExpiration, DisableStrongPassword</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_otherMails" helpKey="help_con_prov_policy_azure_ad_otherMails" multi="true" name="otherMails" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_givenName" helpKey="help_con_prov_policy_azure_ad_givenName" name="givenName" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_surname" helpKey="help_con_prov_policy_azure_ad_surname" name="surname" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_usageLocation" helpKey="help_con_prov_policy_azure_ad_usageLocation" name="usageLocation" reviewRequired="true" section="User" type="string" value="United States;US">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>Australia;AU</String>
+                <String>Canada;CA</String>
+                <String>France;FR</String>
+                <String>Germany;DE</String>
+                <String>Greece;GR</String>
+                <String>Hong Kong;HK</String>
+                <String>Hungary;HU</String>
+                <String>Iceland;IS</String>
+                <String>India;IN</String>
+                <String>Israel;IL</String>
+                <String>Italy;IT</String>
+                <String>NetherLands;NL</String>
+                <String>New Zealand;NZ</String>
+                <String>Peru;PE</String>
+                <String>Philippines;PH</String>
+                <String>Poland;PL</String>
+                <String>Russian federation;RU</String>
+                <String>South Africa;ZA</String>
+                <String>Switzerland;CH</String>
+                <String>Ukrain;UA</String>
+                <String>United Kingdom;GB</String>
+                <String>United States;US</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_country" helpKey="help_con_prov_policy_azure_ad_country" name="country" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_state" helpKey="help_con_prov_policy_azure_ad_state" name="state" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_city" helpKey="help_con_prov_policy_azure_ad_city" name="city" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_streetAddress" helpKey="help_con_prov_policy_azure_ad_streetAddress" name="streetAddress" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_postalCode" helpKey="help_con_prov_policy_azure_ad_postalCode" name="postalCode" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_physicalDeliveryOfficeName" helpKey="help_con_prov_policy_azure_ad_physicalDeliveryOfficeName" name="physicalDeliveryOfficeName" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_preferredLanguage" helpKey="help_con_prov_policy_azure_ad_preferredLanguage" name="preferredLanguage" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_telephoneNumber" helpKey="help_con_prov_policy_azure_ad_telephoneNumber" name="telephoneNumber" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_mobile" helpKey="help_con_prov_policy_azure_ad_mobile" name="mobile" reviewRequired="true" section="User" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_faxNumber" helpKey="help_con_prov_policy_azure_ad_faxNumber" name="facsimileTelephoneNumber" reviewRequired="true" section="User" type="string"/>
+      </Section>
+      <Section label="Guest User B2B" name="Guest User B2B">
+        <Field displayName="con_prov_policy_azure_ad_invitedUserEmailAddress" helpKey="help_con_prov_policy_azure_ad_invitedUserEmailAddress" name="invitedUserEmailAddress" reviewRequired="true" section="Guest User B2B" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_inviteRedirectUrl" helpKey="help_con_prov_policy_azure_ad_inviteRedirectUrl" name="inviteRedirectUrl" reviewRequired="true" section="Guest User B2B" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_displayName" helpKey="help_con_prov_policy_azure_ad_invitedUserDisplayName" name="invitedUserDisplayName" reviewRequired="true" section="Guest User B2B" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_sendInvitationMessage" helpKey="help_con_prov_policy_azure_ad_sendInvitationMessage" name="sendInvitationMessage" reviewRequired="true" section="Guest User B2B" type="boolean" value="true"/>
+        <Field displayName="con_prov_policy_azure_ad_usageLocation" helpKey="help_con_prov_policy_azure_ad_invitedUserUsageLocation" name="invitedUserUsageLocation" reviewRequired="true" section="Guest User B2B" type="string" value="United States;US">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>Australia;AU</String>
+                <String>Canada;CA</String>
+                <String>France;FR</String>
+                <String>Germany;DE</String>
+                <String>Greece;GR</String>
+                <String>Hong Kong;HK</String>
+                <String>Hungary;HU</String>
+                <String>Iceland;IS</String>
+                <String>India;IN</String>
+                <String>Israel;IL</String>
+                <String>Italy;IT</String>
+                <String>NetherLands;NL</String>
+                <String>New Zealand;NZ</String>
+                <String>Peru;PE</String>
+                <String>Philippines;PH</String>
+                <String>Poland;PL</String>
+                <String>Russian federation;RU</String>
+                <String>South Africa;ZA</String>
+                <String>Switzerland;CH</String>
+                <String>Ukrain;UA</String>
+                <String>United Kingdom;GB</String>
+                <String>United States;US</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+        </Field>
+      </Section>
+      <Section label="Local User B2C" name="Local User B2C">
+        <Field displayName="con_prov_policy_azure_ad_signInNameType" helpKey="help_con_prov_policy_azure_ad_signInNameType" name="signInNameType" reviewRequired="true" section="Local User B2C" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_signInNameValue" helpKey="help_con_prov_policy_azure_ad_signInNameValue" name="signInNameValue" reviewRequired="true" section="Local User B2C" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_displayName" helpKey="help_con_prov_policy_azure_ad_displayName" name="localAccountDisplayName" reviewRequired="true" section="Local User B2C" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_accountEnabled" helpKey="help_con_prov_policy_azure_ad_accountEnabled" name="enableLocalAccount" reviewRequired="true" section="Local User B2C" type="boolean"/>
+        <Field displayName="con_prov_policy_azure_ad_password" helpKey="help_con_prov_policy_azure_ad_password" name="b2cPassword" reviewRequired="true" section="Local User B2C" type="secret"/>
+        <Field displayName="con_prov_policy_azure_ad_forceChangePassword" helpKey="help_con_prov_policy_azure_ad_forceChangePassword" name="b2cForceChangePasswordNextLogin" reviewRequired="true" section="Local User B2C" type="boolean"/>
+      </Section>
+    </Form>
+    <Form name="Create group" objectType="group" type="Create">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="Create group"/>
+        </Map>
+      </Attributes>
+      <Section>
+        <Field displayName="con_prov_policy_azure_ad_displayName" helpKey="help_con_prov_policy_azure_ad_groupDisplayName" name="displayName" required="true" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_mailNickname" helpKey="help_con_prov_policy_azure_ad_groupMailNickname" name="mailNickname" required="true" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_description" helpKey="help_con_prov_policy_azure_ad_description" name="description" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_groupType" helpKey="help_con_prov_policy_azure_ad_groupType" name="groupTypes" required="true" reviewRequired="true" type="string">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>Security</String>
+                <String>Office365</String>
+                <String>DistributionList</String>
+                <String>MailEnabledSecurity</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_teamsEnabled" helpKey="help_con_prov_policy_azure_ad_teamsEnabled" name="teamsEnabled" type="boolean"/>
+        <Field displayName="con_prov_policy_azure_ad_addOwnerAsMember" helpKey="help_con_prov_policy_azure_ad_addOwnerAsMember" name="addOwnerAsMember" reviewRequired="true" type="boolean" value="true"/>
+        <Field displayName="con_prov_policy_azure_ad_groupOwners" helpKey="help_con_prov_policy_azure_ad_groupOwners" multi="true" name="owners" type="string"/>
+      </Section>
+    </Form>
+    <Form name="Update group" objectType="group" type="Update">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="Update group"/>
+        </Map>
+      </Attributes>
+      <Section>
+        <Field displayName="con_prov_policy_azure_ad_displayName" helpKey="help_con_prov_policy_azure_ad_groupDisplayName" name="displayName" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_mailNickname" helpKey="help_con_prov_policy_azure_ad_groupMailNickname" name="mailNickname" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_description" helpKey="help_con_prov_policy_azure_ad_description" name="description" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_groupType" helpKey="help_con_prov_policy_azure_ad_groupType" multi="true" name="groupTypes" type="string">
+          <Attributes>
+            <Map>
+              <entry key="readOnly" value="true"/>
+            </Map>
+          </Attributes>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_groupOwners" helpKey="help_con_prov_policy_azure_ad_groupOwners" multi="true" name="owners" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_mailEnabled" helpKey="help_con_prov_policy_azure_ad_mailEnabled" multi="true" name="mailEnabled" type="boolean">
+          <Attributes>
+            <Map>
+              <entry key="readOnly" value="true"/>
+            </Map>
+          </Attributes>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_securityEnabled" helpKey="help_con_prov_policy_azure_ad_securityEnabled" name="securityEnabled" type="boolean">
+          <Attributes>
+            <Map>
+              <entry key="readOnly" value="true"/>
+            </Map>
+          </Attributes>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_teamsEnabled" helpKey="help_con_prov_policy_azure_ad_teamsEnabled" name="teamsEnabled" type="boolean"/>
+        <Field displayName="con_prov_policy_azure_ad_addOwnerAsMember" helpKey="help_con_prov_policy_azure_ad_addOwnerAsMember" name="addOwnerAsMember" reviewRequired="true" type="boolean" value="true"/>
+      </Section>
+    </Form>
+    <Form name="Create Channel" objectType="channel" type="Create">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="Create Channel"/>
+        </Map>
+      </Attributes>
+      <Section>
+        <Field displayName="con_prov_policy_azure_ad_channel_team_email" helpKey="help_con_prov_policy_azure_ad_channel_team_email" name="teamEmail" required="true" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_channel_displayname" helpKey="help_con_prov_policy_azure_ad_channel_displayname" name="displayName" required="true" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_channel_description" helpKey="help_con_prov_policy_azure_ad_channel_description" name="description" reviewRequired="true" type="string"/>
+        <Field displayName="con_prov_policy_azure_ad_channel_membership_type" helpKey="help_con_prov_policy_azure_ad_channel_membership_type" name="membershipType" reviewRequired="true" type="string">
+          <AllowedValuesDefinition>
+            <Value>
+              <List>
+                <String>Standard</String>
+                <String>Private</String>
+              </List>
+            </Value>
+          </AllowedValuesDefinition>
+        </Field>
+        <Field displayName="con_prov_policy_azure_ad_channel_owners" helpKey="help_con_prov_policy_azure_ad_channel_owners" multi="true" name="owners" reviewRequired="true" type="string"/>
+      </Section>
+    </Form>
+  </ProvisioningForms>
+  <Schemas>
+    <Schema created="1722867484783" displayAttribute="displayName" id="0a09000491131850819122e7886f1d02" identityAttribute="objectId" instanceAttribute="" modified="1722884833946" nativeObjectType="account" objectType="account">
+      <AttributeDefinition name="accountEnabled" type="boolean">
+        <Description>True if the account is enabled; otherwise, false</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="assignedLicenses" type="string">
+        <Description>The licenses that are assigned to the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="assignedPlans" schemaObjectType="servicePlan" type="string">
+        <Description>The plans that are assigned to the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="city" type="string">
+        <Description>The city in which the user is located</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="country" type="string">
+        <Description>The country/region in which the user is located</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="department" type="string">
+        <Description>The name for the department in which the user works</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="dirSyncEnabled" type="string">
+        <Description>Indicates whether this object was synced from the on-premises directory</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="disabledPlans" type="string">
+        <Description>The plans that are not assigned to user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="displayName" type="string">
+        <Description>The name displayed in the address book for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="facsimileTelephoneNumber" type="string">
+        <Description>The telephone number of the user's business fax machine</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="givenName" type="string">
+        <Description>First name of user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="groups" schemaObjectType="group" type="string">
+        <Description>Groups assigned to a user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="servicePrincipals" schemaObjectType="servicePrincipal" type="string">
+        <Description>Enterprise Applications assigned to a user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="immutableId" type="string">
+        <Description>This property is used to associate an on-premises ActiveDirectory user account to their Azure AD user object</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="jobTitle" type="string">
+        <Description>The user's job title</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="lastDirSyncTime" type="string">
+        <Description>Indicates the last time at which the object was synced with the on-premises directory</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mail" type="string">
+        <Description>The SMTP address for the user, for example, "john@contoso.onmicrosoft.com"</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mailNickname" type="string">
+        <Description>The mail alias for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="signInNames" type="string">
+        <Description>Specifies the collection of sign-in names for a local account in an Azure Active Directory B2C tenant</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="userIdentities" type="string">
+        <Description>Specifies the collection of userIdentities for a social user account in an Azure Active Directory B2C tenant</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="creationType" type="string">
+        <Description>Indicates whether the user account is a local account for an Azure Active Directory B2C tenant</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mobile" type="string">
+        <Description>The primary cellular telephone number for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="objectId" type="string">
+        <Description>The unique identifier for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="onPremisesSecurityIdentifier" type="string">
+        <Description>Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="otherMails" type="string">
+        <Description>A list of additional email addresses for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="passwordPolicies" type="string">
+        <Description>Specifies password policies for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="physicalDeliveryOfficeName" type="string">
+        <Description>The office location in the user's place of business</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="postalCode" type="string">
+        <Description>The ZIP OR postal code for the user's postal address</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="preferredLanguage" type="string">
+        <Description>Preferred written or spoken language for a person</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="proxyAddresses" type="string">
+        <Description>Proxy addresses, for example: ["SMTP: bob@contoso.com", "smtp: bob@sales.contoso.com"]</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="roles" type="string">
+        <Description>Administrator Role assigned to user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="sipProxyAddress" type="string">
+        <Description>Specifies the voice over IP (VOIP) session initiation protocol (SIP) address for the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="state" type="string">
+        <Description>The state or province in the user's address</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="streetAddress" type="string">
+        <Description>The street address of the user's place of business</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="surname" type="string">
+        <Description>Last name of the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="telephoneNumber" type="string">
+        <Description>The primary telephone number of the user's place of business</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="usageLocation" type="string">
+        <Description>A two letter country code indicating usage location</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="userPrincipalName" type="string">
+        <Description>The user principal name (UPN) of the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="userType" type="string">
+        <Description>Type of the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="manager" type="string">
+        <Description>Manager of the user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="riskLevel" type="string">
+        <Description>Level of the detected risky user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="riskState" type="string">
+        <Description>State of the user's risk</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="riskDetail" type="string">
+        <Description>Details of the detected risk</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="riskLastUpdatedDateTime" type="string">
+        <Description>The date and time that the risky user was last updated</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="channels" schemaObjectType="channel" type="string">
+        <Description>List of channel membership of a user</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="azureEligibleRoles" schemaObjectType="azureEligibleRole" type="string">
+        <Description>List of Azure Eligible Roles</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="azureActiveRoles" schemaObjectType="azureActiveRole" type="string">
+        <Description>List of Azure Active Roles</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="azureADEligibleRoles" schemaObjectType="azureADEligibleRole" type="string">
+        <Description>List of Azure AD Eligible Roles</Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="azureADActiveRoles" schemaObjectType="azureADActiveRole" type="string">
+        <Description>List of Azure AD Active Roles</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="" displayAttribute="displayName" id="0a09000491131850819122e788701d03" identityAttribute="id" instanceAttribute="" modified="1722884833946" nativeObjectType="azureADEligibleRole" objectType="azureADEligibleRole">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Eligible Role Display Name</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="id" type="string">
+        <Description>Azure AD Eligible Role ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="isBuiltIn" type="string">
+        <Description>Indicates whether role is custom or built-in</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="roleName" type="string">
+        <Description>Name of the role</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="scope" type="string">
+        <Description>Scope at which role can be assigned</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="displayName" displayAttribute="displayName" id="0a09000491131850819122e788701d04" identityAttribute="objectId" instanceAttribute="" modified="1722884833946" nativeObjectType="servicePrincipal" objectType="servicePrincipal">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>ServicePrincipal name</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="servicePrincipalType" type="string">
+        <Description>ServicePrincipal type</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="objectId" type="string">
+        <Description>ServicePrincipal ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="owners" type="string">
+        <Description>ServicePrincipal Owners</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="appRoles" type="string">
+        <Description>ServicePrincipal Roles</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="displayName" displayAttribute="displayName" id="0a09000491131850819122e788701d05" identityAttribute="objectId" instanceAttribute="" modified="1722884833946" nativeObjectType="servicePlan" objectType="servicePlan">
+      <AttributeDefinition name="objectId" type="string">
+        <Description>Unique identifier for the service plan which is a combination of skuId and servicePlanId separated by colon (:).</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="skuId" type="string">
+        <Description>Unique identifier (GUID) for the License Pack.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="skuPartNumber" type="string">
+        <Description>The SKU part number of the License Pack. For example, AAD_PREMIUM.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="appliesTo" type="string">
+        <Description>Object types to which the license pack can be assigned. For example: User, Company.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Display name of service plan which is a combination of skuPartNumber and servicePlanName separated by colon (:).</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="servicePlanId" type="string">
+        <Description>Unique identifier of the service plan.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="servicePlanName" type="string">
+        <Description>The name of the service plan.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="provisioningStatus" type="string">
+        <Description>The provisioning status of the service plan.</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="" displayAttribute="displayName" id="0a09000491131850819122e788701d06" identityAttribute="id" instanceAttribute="" modified="1722884833946" nativeObjectType="azureADActiveRole" objectType="azureADActiveRole">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Active AD Role Display Name</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="id" type="string">
+        <Description>Azure AD Active Role ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="isBuiltIn" type="string">
+        <Description>Indicates whether role is custom or built-in</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="roleName" type="string">
+        <Description>Name of the role</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="scope" type="string">
+        <Description>Scope at which role can be assigned</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="description" displayAttribute="displayName" featuresString="PROVISIONING" id="0a09000491131850819122e788701d07" identityAttribute="id" instanceAttribute="" modified="1722884833946" nativeObjectType="channel" objectType="channel">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Display name of the channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="description" type="string">
+        <Description>Decription of the channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="id" type="string">
+        <Description>The channel's unique identifier</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="email" type="string">
+        <Description>Email address of the channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="webUrl" type="string">
+        <Description>Hyperlink of the channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="membershipType" type="string">
+        <Description>Type of the channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="owners" type="string">
+        <Description>The list of owners of the private channel</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="createdDateTime" type="string">
+        <Description>Creation timestamp of the channel </Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="isFavoriteByDefault" type="boolean">
+        <Description>Indicates whether the channel should automatically be marked 'favorite' for all members of the team</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="teamEmail" type="string">
+        <Description>The email address of the parent team</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="" displayAttribute="displayName" id="0a09000491131850819122e788701d08" identityAttribute="id" instanceAttribute="" modified="1722884833946" nativeObjectType="azureActiveRole" objectType="azureActiveRole">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Active Role Display Name</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="id" type="string">
+        <Description>Azure Active Role ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="isBuiltIn" type="string">
+        <Description>Indicates whether role is custom or built-in</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="roleName" type="string">
+        <Description>Name of the role</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="scope" type="string">
+        <Description>Scope at which role can be assigned</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema aggregationType="group" created="1722867484784" descriptionAttribute="" displayAttribute="displayName" id="0a09000491131850819122e788701d09" identityAttribute="id" instanceAttribute="" modified="1722884833946" nativeObjectType="azureEligibleRole" objectType="azureEligibleRole">
+      <AttributeDefinition name="displayName" type="string">
+        <Description>Eligible Role Display Name</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="id" type="string">
+        <Description>Azure Eligible Role ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="isBuiltIn" type="string">
+        <Description>Indicates whether role is custom or built-in</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="roleName" type="string">
+        <Description>Name of the role</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="scope" type="string">
+        <Description>Scope at which role can be assigned</Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema cloudAccessType="group" created="1722867484784" descriptionAttribute="description" displayAttribute="displayName" featuresString="PROVISIONING" id="0a09000491131850819122e788701d0a" identityAttribute="objectId" instanceAttribute="" modified="1722884833946" nativeObjectType="group" objectType="group">
+      <AttributeDefinition name="description" type="string">
+        <Description>Description for the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="dirSyncEnabled" type="string">
+        <Description>Indicates whether this object was synced from the on-premises directory.</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="displayName" type="string">
+        <Description>The display name for the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="groupTypes" type="string">
+        <Description>Type of the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="lastDirSyncTime" type="string">
+        <Description>Indicates the last time at which the object was synced with the on-premises directory</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mail" type="string">
+        <Description>The SMTP address for the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mailEnabled" type="string">
+        <Description>Specifies whether the group is mail-enabled</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="mailNickname" type="string">
+        <Description>The mail alias for the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="objectId" type="string">
+        <Description>Group ID</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="onPremisesSecurityIdentifier" type="string">
+        <Description>Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="proxyAddresses" type="string">
+        <Description>Proxy addresses of the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="securityEnabled" type="string">
+        <Description>Specifies whether the group is a security group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="teamsEnabled" type="string">
+        <Description>Specifies whether teams has been enabled for the group</Description>
+      </AttributeDefinition>
+      <AttributeDefinition multi="true" name="owners" type="string">
+        <Description>Owners of the group</Description>
+      </AttributeDefinition>
+    </Schema>
+  </Schemas>
+  <ApplicationScorecard created="1722867484761" id="0a09000491131850819122e788591d01" modified="1722884833946"/>
+</Application>

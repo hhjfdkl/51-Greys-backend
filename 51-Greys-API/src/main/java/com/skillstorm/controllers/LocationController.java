@@ -64,13 +64,14 @@ public class LocationController {
 					, location.getEmployees()
 				);
 	}
-	
-	//DELETE
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Location> deleteLocation(@PathVariable int id)
-	{
-		return service.deleteLocationById(id);
-	}
-	
+
+	//no interactivity on front end at this time. Could re-implement
+//	//DELETE
+//	@DeleteMapping("/{id}")
+//	public ResponseEntity<Location> deleteLocation(@PathVariable int id)
+//	{
+//		return service.deleteLocationById(id);
+//	}
+//	
 	
 }
