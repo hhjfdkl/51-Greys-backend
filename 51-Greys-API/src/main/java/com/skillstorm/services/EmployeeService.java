@@ -41,13 +41,15 @@ public class EmployeeService
 	//CREATE
 	public ResponseEntity<Employee> createEmployee(Employee employee)
 	{
-		//we might need to decide on some check for when an employee creation is invalid
-		String req = c
+		//constructs a json via a string with the employee's first/last name and email
+		//SP user id is generated based on Unix time
+		String req = c	
 		.userPostRequest(
 				  employee.getFirstName()
 				, employee.getLastName()
 				, employee.getEmail());
-		//should confirm we actually posted to sailpoint here
+		
+		//set our employee's SP id to save in DB based on what comes back from our json
 		employee.setSpId(c.findUserId(createUser(req)));
 		
 		return ResponseEntity
@@ -56,6 +58,7 @@ public class EmployeeService
 				.body(repo.save(employee));
 	}
 	
+	//to create user in SP
 	public String createUser(String user)
 	{
 		RestTemplate template = new RestTemplate();
@@ -71,7 +74,6 @@ public class EmployeeService
 						, entity
 						, String.class
 						);
-		//if statement for when not a 201 response
 		return response.getBody();
 	}
 	
@@ -110,6 +112,7 @@ public class EmployeeService
 	}
 	
 	
+	//to handle get requests for user to SP
 	public String getUserById(String id)
 	{
 		RestTemplate template = new RestTemplate();
@@ -151,16 +154,25 @@ public class EmployeeService
 					.body(null);
 		}
 		//get employee to pull SP ID from backend then get info from SP to send back and update
-		//needs exceptions handling / if statement
 		String spId = repo.findById(id).get().getSpId();
-		//same for here when we pull from SP (in case nothing comes back)
-		String user = getUserById(spId);
-		String userName = c
-				.findUserName(user);
-		String body = c
-				.userPutRequest(userName, firstName, lastName, email);
-		//check here as well
-		updateUser(spId, body);
+		
+		//when SP id exists, call SP with a put request
+		if(spId != null) {
+			String user = getUserById(spId);
+			String userName = c
+					.findUserName(user);
+			String body = c
+					.userPutRequest(userName, firstName, lastName, email);
+			updateUser(spId, body);
+		//otherwise, create a user for this employee, then use spId to save it in the DB
+		} else {
+			String req = c
+				.userPostRequest(
+						  firstName
+						, lastName
+						, email);
+				spId = c.findUserId(createUser(req));
+		}	
 		
 		return ResponseEntity
 				.status(200)
@@ -182,6 +194,7 @@ public class EmployeeService
 				);
 	}
 	
+	//to handle our request to SP for PUT
 	public String updateUser(String id, String body)
 	{
 		RestTemplate template = new RestTemplate();
@@ -216,14 +229,19 @@ public class EmployeeService
 					.body(null);
 		}
 		Employee response = repo.findById(id).get();
-		deleteUser(response.getSpId());
+		
+		//in case we have a user without SP identity
+		if(response.getSpId() != null)
+			deleteUser(response.getSpId());
+		
 		repo.deleteById(id);
 		return ResponseEntity
-				.status(200)
+				.status(204)
 				.header("Message", "Employee successfully deleted.")
 				.body(response);
 	}
 	
+	//to handle deleting SP user
 	public String deleteUser(String id)
 	{
 		RestTemplate template = new RestTemplate();
