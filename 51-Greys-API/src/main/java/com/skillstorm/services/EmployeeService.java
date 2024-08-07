@@ -54,7 +54,10 @@ public class EmployeeService
 				, employee.getEmail());
 		
 		//set our employee's SP id to save in DB based on what comes back from our json
-		employee.setSpId(stringCutter.findUserId(sailpoint.createUser(req)));
+		employee.setSpId(stringCutter.findUserId(
+				sailpoint
+				.createUser(req)
+				.getBody()));
 		
 		return ResponseEntity
 				.status(201)
@@ -133,7 +136,7 @@ public class EmployeeService
 		
 		//when SP id exists, call SP with a put request
 		if(spId != null) {
-			String user = sailpoint.getUserById(spId);
+			String user = sailpoint.getUserById(spId).getBody();
 			String userName = stringCutter
 					.findUserName(user);
 			String body = stringCutter
@@ -146,7 +149,11 @@ public class EmployeeService
 						  firstName
 						, lastName
 						, email);
-				spId = stringCutter.findUserId(sailpoint.createUser(req));
+				spId = stringCutter.findUserId(
+						sailpoint
+						.createUser(req)
+						.getBody()
+						);
 		}	
 		
 		
@@ -178,7 +185,7 @@ public class EmployeeService
 			
 				spAcctId = 
 						stringCutter.findAccountId(
-								sailpoint.getUserById(spId)
+								sailpoint.getUserById(spId).getBody()
 									);
 		}
 			
@@ -187,7 +194,8 @@ public class EmployeeService
 		
 		if((clrNumeric > 3) && (spAcctId != null))
 		{
-			sailpoint.deleteAccount(spAcctId);
+			if(sailpoint.deleteAccount(spAcctId).getStatusCode().value()==204)
+				spAcctId = null;
 		}
 		
 		
@@ -229,10 +237,14 @@ public class EmployeeService
 		}
 		Employee response = repo.findById(id).get();
 		
-		//in case we have a user without SP identity
+		//in case we have a user without SP identity and/or account
+		if(response.getSpAcctId() != null)
+			sailpoint.deleteAccount(response.getSpAcctId());
 		if(response.getSpId() != null)
-			sailpoint.deleteUser(response.getSpId()); 
-			//NOTE: There's no need to delete associated accounts here since SailPoint automatically does it when a user is deleted 
+			sailpoint.deleteUser(response.getSpId());
+		
+		
+ 
 		
 		repo.deleteById(id);
 		return ResponseEntity
@@ -262,7 +274,7 @@ public class EmployeeService
 		
 	//CREATE
 		//to POST user in SP
-		public String createUser(String user)
+		public ResponseEntity<String> createUser(String user)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
@@ -270,14 +282,14 @@ public class EmployeeService
 			headers.setBasicAuth(username, password);
 			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 			HttpEntity<String> entity = new HttpEntity<>(user, headers);
-			ResponseEntity<String> response =
-					template.exchange(
+			
+			return		template.exchange(
 							  url + "/Users"
 							, HttpMethod.POST
 							, entity
 							, String.class
 							);
-			return response.getBody();
+			
 		}
 		
 		//to POST account in SP
@@ -289,7 +301,6 @@ public class EmployeeService
 			headers.setBasicAuth(username, password);
 			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 			HttpEntity<String> entity = new HttpEntity<>(account, headers);
-//			ResponseEntity<String> response;
 			
 			/**
 			 * SailPoint always returns a 500 error
@@ -323,48 +334,46 @@ public class EmployeeService
 		
 	//READ
 		//to handle GET requests for user to SP
-		public String getUserById(String id)
+		public ResponseEntity<String> getUserById(String id)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			headers.setBasicAuth(username, password);
 			HttpEntity<String> entity = new HttpEntity<>(headers);
-			ResponseEntity<String> response = 
-					template.exchange(
+			 
+			return		template.exchange(
 							  url + "/Users/" + id
 							, HttpMethod.GET
 							, entity
 							, String.class
 							);
-			//if statement for when not a 200 response
-			return response.getBody();
+			
 		}
 		
 
 		
 		//to handle GET requests for account to SP
-		public String getAccountById(String id)
+		public ResponseEntity<String> getAccountById(String id)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			headers.setBasicAuth(username, password);
 			HttpEntity<String> entity = new HttpEntity<>(headers);
-			ResponseEntity<String> response = 
-					template.exchange(
+			 
+			return		template.exchange(
 							  url + "/Accounts/" + id
 							, HttpMethod.GET
 							, entity
 							, String.class
 							);
-			//if statement for when not a 200 response
-			return response.getBody();
+			
 		}
 		
 	//UPDATE
 		//to handle PUT requests for user to SP
-		public String updateUser(String id, String body)
+		public ResponseEntity<String> updateUser(String id, String body)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
@@ -372,51 +381,51 @@ public class EmployeeService
 			headers.setBasicAuth(username, password);
 			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 			HttpEntity<String> entity = new HttpEntity<>(body, headers);
-			ResponseEntity<String> response = 
-					template.exchange(
+			 
+			return		template.exchange(
 							  url + "/Users/" + id
 							, HttpMethod.PUT
 							, entity
 							, String.class
 							);
-			//if statement for when not 200 response
-			return response.getBody();
+			
+			
 		}
 		
 		
 	//DELETE
 		//to handle DELETE requests for user to SP
-		public String deleteUser(String id)
+		public ResponseEntity<String> deleteUser(String id)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
-			headers.setBasicAuth("spadmin", "admin");
+			headers.setBasicAuth(username, password);
 			HttpEntity<String> entity = new HttpEntity<>(headers);
-			ResponseEntity<String> response = 
-					template.exchange(
+			 
+			return		template.exchange(
 							  url + "/Users/" + id
 							, HttpMethod.DELETE
 							, entity
 							, String.class
 							);
-			return response.getBody();
+			
 		}
 		
 		//to handle DELETE requests for account to SP
-		public String deleteAccount(String id)
+		public ResponseEntity<String> deleteAccount(String id)
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
-			headers.setBasicAuth("spadmin", "admin");
+			headers.setBasicAuth(username, password);
 			HttpEntity<String> entity = new HttpEntity<>(headers);
-			ResponseEntity<String> response = 
-					template.exchange(
+			 
+			return		template.exchange(
 							  url + "/Accounts/" + id
 							, HttpMethod.DELETE
 							, entity
 							, String.class
 							);
-			return response.getBody();
+			
 		}
 		
 		
