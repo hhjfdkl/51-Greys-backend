@@ -24,4 +24,10 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	)
 	public Iterable<Employee> findEmployeesByName(String name);
 	
+	@Query(nativeQuery = true,
+			value = 
+			  "SELECT * FROM employee "
+			+ "ORDER BY employee_id DESC"
+			)
+	public Iterable<Employee> findAllReversed();
 }

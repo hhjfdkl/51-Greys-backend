@@ -75,7 +75,7 @@ public class EmployeeService
 		return ResponseEntity
 				.status(200)
 				.header("Message", "Pulled all employees.")
-				.body(repo.findAll());
+				.body(repo.findAllReversed());
 	}
 	
 	
