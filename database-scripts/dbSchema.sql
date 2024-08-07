@@ -57,6 +57,7 @@ CREATE TABLE employee (
     , project_id INT
     , img VARCHAR(4096)
     , sp_id VARCHAR(32)
+    , sp_acct_id VARCHAR(32)
     
     , CONSTRAINT PRIMARY KEY (employee_id)
     , CONSTRAINT FOREIGN KEY (project_id) REFERENCES project (project_id)
