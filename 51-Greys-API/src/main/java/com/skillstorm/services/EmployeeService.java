@@ -11,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.skillstorm.misc.StringCutter;
@@ -126,7 +127,9 @@ public class EmployeeService
 					.body(null);
 		}
 		//get employee to pull SP ID from backend then get info from SP to send back and update
-		String spId = repo.findById(id).get().getSpId();
+		
+		Employee dbEmployee = repo.findById(id).get();
+		String spId = dbEmployee.getSpId();
 		
 		//when SP id exists, call SP with a put request
 		if(spId != null) {
@@ -146,6 +149,49 @@ public class EmployeeService
 				spId = stringCutter.findUserId(sailpoint.createUser(req));
 		}	
 		
+		
+		/**
+		 * If clearance level is 3 or higher, make sure we have an associated account with the user
+		 * 1 is Top Secret
+		 * 2 is Secret
+		 * 3 is Confidential
+		 */
+		
+		int clrNumeric = clearance.getClearanceLevel();
+		String spAcctId = dbEmployee.getSpAcctId();
+		
+		if((spAcctId == null) && (clrNumeric <= 3) ) 
+		{
+			//SailPoint always returns a 500 error when account is created
+			//the 500 error always states that nativeIdentity doesn't exist 
+			//even if nativeIdentity is provided, no body in the 500 response
+			//Error override is in the createAccount method.
+				sailpoint.createAccount(
+						stringCutter.accountPostRequest(
+								  spId
+								, email
+								, lastName)
+						);
+				
+				//since we always get a 500, we're going to call the user by id
+				//and then assign its associated account to our employee object
+			
+				spAcctId = 
+						stringCutter.findAccountId(
+								sailpoint.getUserById(spId)
+									);
+		}
+			
+			
+		
+		
+		if((clrNumeric > 3) && (spAcctId != null))
+		{
+			sailpoint.deleteAccount(spAcctId);
+		}
+		
+		
+		
 		return ResponseEntity
 				.status(200)
 				.header("Message", "Employee successfully updated")
@@ -160,6 +206,7 @@ public class EmployeeService
 						, location
 						, img
 						, spId
+						, spAcctId
 						, project
 						)
 					)
@@ -234,7 +281,7 @@ public class EmployeeService
 		}
 		
 		//to POST account in SP
-		public String createAccount(String account)
+		public ResponseEntity<String> createAccount(String account) 
 		{
 			RestTemplate template = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
@@ -242,14 +289,35 @@ public class EmployeeService
 			headers.setBasicAuth(username, password);
 			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 			HttpEntity<String> entity = new HttpEntity<>(account, headers);
-			ResponseEntity<String> response =
-					template.exchange(
+//			ResponseEntity<String> response;
+			
+			/**
+			 * SailPoint always returns a 500 error
+			 * This is here for force a 201 response
+			 */
+			
+			try {
+				template.exchange(
 							  url + "/Accounts"
 							, HttpMethod.POST
 							, entity
 							, String.class
 							);
-			return response.getBody();
+			} catch (HttpServerErrorException e) {
+				return ResponseEntity
+						.status(201)
+						.header("Message", "Account Created")
+						.body("No body to return")
+						;
+			}
+			return ResponseEntity
+					.status(201)
+					.header("Message", "Account Created")
+					.body("No body to return")
+					;
+					
+				
+//			return response.getBody();
 		}
 		
 		

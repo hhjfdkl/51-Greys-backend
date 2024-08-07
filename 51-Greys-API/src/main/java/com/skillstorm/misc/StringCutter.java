@@ -74,13 +74,13 @@ public class StringCutter {
 	public String accountPostRequest(String spId, String email, String lastName)
 	{
 		long time = System.currentTimeMillis()/1000L;
-
+		String sfEmail = lastName + ".a51grey." + time + "@chatter.salesforce.com";
 		return "{"
 		+    "\"identity\":{"
 		+        "\"value\":\"" + spId + "\""
 		+    "},"
 		+    "\"application\":{"
-		+        "\"value\":\"" + appId + "\""
+		+        "\"value\":\"0a09000491131850819113cad8240129\""	//for some reason the variable doesn't register here
 		+    "},"
 		+    "\"active\":true,"
 		+    "\"urn:ietf:params:scim:schemas:sailpoint:1.0:Application:Schema:Salesforce:account\": {"
@@ -88,18 +88,19 @@ public class StringCutter {
 		+        "\"LastName\": \"a51grey\","
 		+        "\"CommunityNickname\":\"AF" + time + "\","
 		+        "\"ProfileName\":\"Chatter Free User\","
-		+        "\"Username\": \"" + lastName + ".a51grey." + time + "@chatter.salesforce.com\","
-		+        "\"Email\": \"" + email + "\","
+		+        "\"Username\": \"" + sfEmail + "\","
+		+        "\"Email\": \"" + sfEmail + "\","
 		+        "\"Alias\": \"a51greys\","
 		+        "\"TimeZoneSidKey\": \"America/Los_Angeles\","
 		+        "\"LocaleSidKey\": \"en_US\","
 		+        "\"EmailEncodingKey\": \"UTF-8\","
 		+        "\"LanguageLocaleKey\": \"en_US\""
-		+    "}";
+		+    "}"
+		+	"}";
 
 	}
 	
-	//find the account id
+	//find the account id in the user json response
 	public String findAccountId(String json)
 	{
 		//12 non-whitespaces away from the start
