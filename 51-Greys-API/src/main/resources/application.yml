@@ -7,13 +7,13 @@ spring:
       ddl-auto: none
 
   datasource:
-    url: jdbc:mysql://localhost:3306/51_greys_employee_management_database
-    username: root
-    password: root
-#    url:  jdbc:mysql://51-greys-test-database.mysql.database.azure.com/testdb
-#    username: greysdb
-#    password: Mother1!
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/51_greys_employee_management_database
+#    username: root
+#    password: root
+    url:  jdbc:mysql://51-greys-test-database.mysql.database.azure.com/testdb
+    username: greysdb
+    password: Mother1!
+    driver-class-name: com.mysql.cj.jdbc.Driver
     
 # Will be used once we implement security features
   security:
