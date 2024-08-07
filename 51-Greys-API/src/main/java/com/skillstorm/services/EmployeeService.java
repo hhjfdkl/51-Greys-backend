@@ -24,7 +24,9 @@ import com.skillstorm.repositories.EmployeeRepository;
 public class EmployeeService 
 {
 
-	StringCutter c = new StringCutter();
+	StringCutter stringCutter = new StringCutter();
+	
+	SailPointHandler sailpoint = new SailPointHandler();
 	
 	@Value("${sp-login.username}")
 	private String username;
@@ -38,19 +40,20 @@ public class EmployeeService
 	@Autowired
 	private EmployeeRepository repo;
 	
+	
 	//CREATE
 	public ResponseEntity<Employee> createEmployee(Employee employee)
 	{
 		//constructs a json via a string with the employee's first/last name and email
 		//SP user id is generated based on Unix time
-		String req = c	
+		String req = stringCutter	
 		.userPostRequest(
 				  employee.getFirstName()
 				, employee.getLastName()
 				, employee.getEmail());
 		
 		//set our employee's SP id to save in DB based on what comes back from our json
-		employee.setSpId(c.findUserId(createUser(req)));
+		employee.setSpId(stringCutter.findUserId(sailpoint.createUser(req)));
 		
 		return ResponseEntity
 				.status(201)
@@ -58,25 +61,9 @@ public class EmployeeService
 				.body(repo.save(employee));
 	}
 	
-	//to create user in SP
-	public String createUser(String user)
-	{
-		RestTemplate template = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setBasicAuth(username, password);
-		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<>(user, headers);
-		ResponseEntity<String> response =
-				template.exchange(
-						  url + "/Users"
-						, HttpMethod.POST
-						, entity
-						, String.class
-						);
-		return response.getBody();
-	}
 	
+	
+
 	
 	//READ
 	public ResponseEntity<Iterable<Employee>> getAllEmployees()
@@ -112,24 +99,9 @@ public class EmployeeService
 	}
 	
 	
-	//to handle get requests for user to SP
-	public String getUserById(String id)
-	{
-		RestTemplate template = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setBasicAuth(username, password);
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		ResponseEntity<String> response = 
-				template.exchange(
-						  url + "/Users/" + id
-						, HttpMethod.GET
-						, entity
-						, String.class
-						);
-		//if statement for when not a 200 response
-		return response.getBody();
-	}
+
+	
+	
 	
 	
 	//UPDATE
@@ -158,20 +130,20 @@ public class EmployeeService
 		
 		//when SP id exists, call SP with a put request
 		if(spId != null) {
-			String user = getUserById(spId);
-			String userName = c
+			String user = sailpoint.getUserById(spId);
+			String userName = stringCutter
 					.findUserName(user);
-			String body = c
+			String body = stringCutter
 					.userPutRequest(userName, firstName, lastName, email);
-			updateUser(spId, body);
+			sailpoint.updateUser(spId, body);
 		//otherwise, create a user for this employee, then use spId to save it in the DB
 		} else {
-			String req = c
+			String req = stringCutter
 				.userPostRequest(
 						  firstName
 						, lastName
 						, email);
-				spId = c.findUserId(createUser(req));
+				spId = stringCutter.findUserId(sailpoint.createUser(req));
 		}	
 		
 		return ResponseEntity
@@ -193,27 +165,7 @@ public class EmployeeService
 					)
 				);
 	}
-	
-	//to handle our request to SP for PUT
-	public String updateUser(String id, String body)
-	{
-		RestTemplate template = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setBasicAuth(username, password);
-		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<>(body, headers);
-		ResponseEntity<String> response = 
-				template.exchange(
-						  url + "/Users/" + id
-						, HttpMethod.PUT
-						, entity
-						, String.class
-						);
-		//if statement for when not 200 response
-		return response.getBody();
-	}
-	
+
 	
 	
 	
@@ -232,7 +184,8 @@ public class EmployeeService
 		
 		//in case we have a user without SP identity
 		if(response.getSpId() != null)
-			deleteUser(response.getSpId());
+			sailpoint.deleteUser(response.getSpId()); 
+			//NOTE: There's no need to delete associated accounts here since SailPoint automatically does it when a user is deleted 
 		
 		repo.deleteById(id);
 		return ResponseEntity
@@ -241,21 +194,164 @@ public class EmployeeService
 				.body(response);
 	}
 	
-	//to handle deleting SP user
-	public String deleteUser(String id)
-	{
-		RestTemplate template = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setBasicAuth("spadmin", "admin");
-		HttpEntity<String> entity = new HttpEntity<>(headers);
-		ResponseEntity<String> response = 
-				template.exchange(
-						  url + "/Users/" + id
-						, HttpMethod.DELETE
-						, entity
-						, String.class
-						);
-		return response.getBody();
-	}
+
 	
+	
+	/**
+	 * private class for SailPoint methods - above felt too cluttered
+	 * 
+	 * Below contains all the methods which call to the SailPoint's API
+	 * 
+	 * I'm keeping them in employees since all SailPoint functionality is
+	 * related to employees and not other objects in our API 
+	 * 
+	 * 
+	 * NOTE that PUT is intentionally not here for accounts. 
+	 * For some reason, we can't get PUT to work, but we'll make it once 
+	 * we can figure out how to create a Salesforce account through SailPoint
+	 * 
+	 */
+	private class SailPointHandler {
+		
+	//CREATE
+		//to POST user in SP
+		public String createUser(String user)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setBasicAuth(username, password);
+			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+			HttpEntity<String> entity = new HttpEntity<>(user, headers);
+			ResponseEntity<String> response =
+					template.exchange(
+							  url + "/Users"
+							, HttpMethod.POST
+							, entity
+							, String.class
+							);
+			return response.getBody();
+		}
+		
+		//to POST account in SP
+		public String createAccount(String account)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setBasicAuth(username, password);
+			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+			HttpEntity<String> entity = new HttpEntity<>(account, headers);
+			ResponseEntity<String> response =
+					template.exchange(
+							  url + "/Accounts"
+							, HttpMethod.POST
+							, entity
+							, String.class
+							);
+			return response.getBody();
+		}
+		
+		
+	//READ
+		//to handle GET requests for user to SP
+		public String getUserById(String id)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setBasicAuth(username, password);
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+			ResponseEntity<String> response = 
+					template.exchange(
+							  url + "/Users/" + id
+							, HttpMethod.GET
+							, entity
+							, String.class
+							);
+			//if statement for when not a 200 response
+			return response.getBody();
+		}
+		
+
+		
+		//to handle GET requests for account to SP
+		public String getAccountById(String id)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setBasicAuth(username, password);
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+			ResponseEntity<String> response = 
+					template.exchange(
+							  url + "/Accounts/" + id
+							, HttpMethod.GET
+							, entity
+							, String.class
+							);
+			//if statement for when not a 200 response
+			return response.getBody();
+		}
+		
+	//UPDATE
+		//to handle PUT requests for user to SP
+		public String updateUser(String id, String body)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setBasicAuth(username, password);
+			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+			HttpEntity<String> entity = new HttpEntity<>(body, headers);
+			ResponseEntity<String> response = 
+					template.exchange(
+							  url + "/Users/" + id
+							, HttpMethod.PUT
+							, entity
+							, String.class
+							);
+			//if statement for when not 200 response
+			return response.getBody();
+		}
+		
+		
+	//DELETE
+		//to handle DELETE requests for user to SP
+		public String deleteUser(String id)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setBasicAuth("spadmin", "admin");
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+			ResponseEntity<String> response = 
+					template.exchange(
+							  url + "/Users/" + id
+							, HttpMethod.DELETE
+							, entity
+							, String.class
+							);
+			return response.getBody();
+		}
+		
+		//to handle DELETE requests for account to SP
+		public String deleteAccount(String id)
+		{
+			RestTemplate template = new RestTemplate();
+			HttpHeaders headers = new HttpHeaders();
+			headers.setBasicAuth("spadmin", "admin");
+			HttpEntity<String> entity = new HttpEntity<>(headers);
+			ResponseEntity<String> response = 
+					template.exchange(
+							  url + "/Accounts/" + id
+							, HttpMethod.DELETE
+							, entity
+							, String.class
+							);
+			return response.getBody();
+		}
+		
+		
+	}
 }
+
