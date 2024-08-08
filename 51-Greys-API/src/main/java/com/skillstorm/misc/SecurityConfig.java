@@ -32,11 +32,13 @@ public class SecurityConfig {
 		http.httpBasic(Customizer.withDefaults());
 		http.authorizeHttpRequests((reqs) -> 
 		{
+			
 //			reqs.anyRequest().authenticated()).httpBasic();
 			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.PUT, "/**").authenticated(); 
 			reqs.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
+		
 		});
 		return http.build();
 	}
