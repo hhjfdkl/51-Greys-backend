@@ -34,8 +34,8 @@ public class SecurityConfig {
 		{
 			
 //			reqs.anyRequest().authenticated()).httpBasic();
-			reqs.requestMatchers(HttpMethod.GET, "/login").permitAll();
-			reqs.requestMatchers(HttpMethod.POST, "/login").permitAll();
+//			reqs.requestMatchers(HttpMethod.GET, "/login").permitAll();
+//			reqs.requestMatchers(HttpMethod.POST, "/login").permitAll();
 			
 			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
