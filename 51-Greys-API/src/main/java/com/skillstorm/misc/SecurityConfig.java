@@ -13,16 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-//	@Bean
-//	public InMemoryUserDetailsManager userDetailsService()
-//	{
-//		UserDetails user = User.withDefaultPasswordEncoder()
-//				.username("itsme")
-//				.password("password")
-//				.roles("USER")
-//				.build();
-//		return new InMemoryUserDetailsManager(user);
-//	}
 	
 	
 	@Bean
@@ -32,12 +22,17 @@ public class SecurityConfig {
 		http.httpBasic(Customizer.withDefaults());
 		http.authorizeHttpRequests((reqs) -> 
 		{
-//			reqs.anyRequest().authenticated()).httpBasic();
+			
+
 			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.PUT, "/**").authenticated(); 
 			reqs.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
-		});
+
+		
+		}).cors(Customizer.withDefaults())
+		.csrf(csrf -> csrf.disable());
+
 		return http.build();
 	}
 	

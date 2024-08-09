@@ -19,7 +19,7 @@ spring:
   security:
     user:
       name: itsme
-      password: password
+      password: password  
   
 server:
   port: 8080

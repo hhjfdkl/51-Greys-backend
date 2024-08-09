@@ -18,7 +18,7 @@ import com.skillstorm.services.EmployeeService;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin(origins = "*") 	//leaving this here for now. Will review Security later
+//@CrossOrigin(origins = "*") 	//leaving this here for now. Will review Security later
 public class EmployeeController {
 
 	@Autowired
@@ -58,6 +58,7 @@ public class EmployeeController {
 			, @RequestBody Employee employee
 			)
 	{
+		System.out.println("Success!");
 		return service.updateEmployee(
 				  id
 				, employee.getFirstName()

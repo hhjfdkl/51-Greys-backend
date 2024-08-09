@@ -18,7 +18,7 @@ import com.skillstorm.services.ProjectService;
 
 @RestController
 @RequestMapping("/project")
-@CrossOrigin(origins = "*")	//could change when security is implemented
+//@CrossOrigin(origins = "*")	//could change when security is implemented
 public class ProjectController {
 
 	@Autowired

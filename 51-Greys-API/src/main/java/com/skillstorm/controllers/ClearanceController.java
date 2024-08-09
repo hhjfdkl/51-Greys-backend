@@ -13,7 +13,7 @@ import com.skillstorm.services.ClearanceService;
 
 @RestController
 @RequestMapping("/clearance")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class ClearanceController {
 
 	@Autowired
