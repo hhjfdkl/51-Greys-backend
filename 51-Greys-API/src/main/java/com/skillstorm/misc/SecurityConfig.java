@@ -33,13 +33,17 @@ public class SecurityConfig {
 		http.authorizeHttpRequests((reqs) -> 
 		{
 			
-//			reqs.anyRequest().authenticated()).httpBasic();
+
 			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
 			reqs.requestMatchers(HttpMethod.PUT, "/**").authenticated(); 
 			reqs.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
+
 		
-		});
+		}).cors(Customizer.withDefaults())
+		.csrf(csrf -> csrf.disable());
+		//http.cors(cors -> cors.disable());
+		//http.cors(cors -> cors.disable());
 		return http.build();
 	}
 	

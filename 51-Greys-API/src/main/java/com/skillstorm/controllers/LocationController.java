@@ -18,7 +18,7 @@ import com.skillstorm.services.LocationService;
 
 @RestController
 @RequestMapping("/location")
-@CrossOrigin(origins = "*") //possibly change when security is put in
+//@CrossOrigin(origins = "*") //possibly change when security is put in
 public class LocationController {
 
 	@Autowired
