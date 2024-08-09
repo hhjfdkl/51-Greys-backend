@@ -13,16 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-//	@Bean
-//	public InMemoryUserDetailsManager userDetailsService()
-//	{
-//		UserDetails user = User.withDefaultPasswordEncoder()
-//				.username("itsme")
-//				.password("password")
-//				.roles("USER")
-//				.build();
-//		return new InMemoryUserDetailsManager(user);
-//	}
 	
 	
 	@Bean
@@ -42,8 +32,7 @@ public class SecurityConfig {
 		
 		}).cors(Customizer.withDefaults())
 		.csrf(csrf -> csrf.disable());
-		//http.cors(cors -> cors.disable());
-		//http.cors(cors -> cors.disable());
+
 		return http.build();
 	}
 	
