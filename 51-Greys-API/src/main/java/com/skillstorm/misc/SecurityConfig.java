@@ -3,47 +3,47 @@ package com.skillstorm.misc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
+//import org.springframework.security.config.Customizer;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+//import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+//@Configuration
 public class SecurityConfig {
 
+////	@Bean
+////	public InMemoryUserDetailsManager userDetailsService()
+////	{
+////		UserDetails user = User.withDefaultPasswordEncoder()
+////				.username("itsme")
+////				.password("password")
+////				.roles("USER")
+////				.build();
+////		return new InMemoryUserDetailsManager(user);
+////	}
+//	
+//	
 //	@Bean
-//	public InMemoryUserDetailsManager userDetailsService()
+//	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
 //	{
-//		UserDetails user = User.withDefaultPasswordEncoder()
-//				.username("itsme")
-//				.password("password")
-//				.roles("USER")
-//				.build();
-//		return new InMemoryUserDetailsManager(user);
+//		
+//		http.httpBasic(Customizer.withDefaults());
+//		http.authorizeHttpRequests((reqs) -> 
+//		{
+//			
+////			reqs.anyRequest().authenticated()).httpBasic();
+////			reqs.requestMatchers(HttpMethod.GET, "/login").permitAll();
+////			reqs.requestMatchers(HttpMethod.POST, "/login").permitAll();
+//			
+//			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
+//			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
+//			reqs.requestMatchers(HttpMethod.PUT, "/**").authenticated(); 
+//			reqs.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
+//		
+//		});
+//		return http.build();
 //	}
-	
-	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
-	{
-		
-		http.httpBasic(Customizer.withDefaults());
-		http.authorizeHttpRequests((reqs) -> 
-		{
-			
-//			reqs.anyRequest().authenticated()).httpBasic();
-//			reqs.requestMatchers(HttpMethod.GET, "/login").permitAll();
-//			reqs.requestMatchers(HttpMethod.POST, "/login").permitAll();
-			
-			reqs.requestMatchers(HttpMethod.POST, "/**").authenticated();
-			reqs.requestMatchers(HttpMethod.GET, "/**").authenticated();
-			reqs.requestMatchers(HttpMethod.PUT, "/**").authenticated(); 
-			reqs.requestMatchers(HttpMethod.DELETE, "/**").authenticated();
-		
-		});
-		return http.build();
-	}
 	
 }
